@@ -1,0 +1,31 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+
+@use 'vuetify/settings' with (
+  // ❌ отключить полный color-pack (если нужен свой theme)
+  $color-pack: false,
+
+  // ✅ Задаём шрифты
+  $body-font-family: 'Jost, sans-serif',
+  $heading-font-family: 'Jost, sans-serif',
+
+  // ✅ Пример изменения брейкпоинтов
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 600px,
+    md: 960px,
+    lg: 1280px,
+    xl: 1920px
+  ),
+
+  // ✅ Пример изменения радиуса кнопок
+  $button-border-radius: 8px
+);

@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "styles": {
+    "features": {
+      "all": {
+        "color": "#f5f5f5"
+      },
+      "poi": {
+        "visibility": "off"
+      },
+      "road": {
+        "color": "#ffffff"
+      },
+      "water": {
+        "color": "#c9c9c9"
+      },
+      "administrative": {
+        "color": "#c9c9c9"
+      }
+    },
+    "labels": {
+      "text": {
+        "fillColor": "#616161",
+        "strokeColor": "#f5f5f5"
+      },
+      "icon": {
+        "visibility": "off"
+      }
+    }
+  }
+}
