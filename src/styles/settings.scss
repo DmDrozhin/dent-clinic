@@ -1,31 +1,29 @@
-/**
- * src/styles/settings.scss
- *
- * Configures SASS variables and Vuetify overwrites
- */
+@use 'sass:map';
+// === Сбрасываем box-sizing ===
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-// https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
-//   $color-pack: false
-// );
+// === Глобальные стили ===
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-@use 'vuetify/settings' with (
-  // ❌ отключить полный color-pack (если нужен свой theme)
-  $color-pack: false,
+// === Миксин для брейкпоинтов ===
+@mixin respond-to($breakpoint) {
+  $value: map.get($grid-breakpoints, $breakpoint);
 
-  // ✅ Задаём шрифты
-  $body-font-family: 'Jost, sans-serif',
-  $heading-font-family: 'Jost, sans-serif',
+  @if $value != null {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
 
-  // ✅ Пример изменения брейкпоинтов
-  $grid-breakpoints: (
-    xs: 0,
-    sm: 600px,
-    md: 960px,
-    lg: 1280px,
-    xl: 1920px
-  ),
-
-  // ✅ Пример изменения радиуса кнопок
-  $button-border-radius: 8px
-);

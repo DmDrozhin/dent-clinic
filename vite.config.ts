@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url';
-
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -17,10 +16,10 @@ export default defineConfig({
     vueDevTools(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
-      autoImport: true,
-      styles: {
-        configFile: 'src/styles/settings.scss',
-      },
+      // autoImport: true,
+      // styles: {
+      //   configFile: 'src/styles/settings.scss',
+      // },
     }),
   ],
   resolve: {
@@ -36,8 +35,8 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-        @use "@/styles/variables.scss" as *;
-        @use "@/styles/helpers.scss" as *;
+          @use "@/styles/variables.scss" as *;
+          @use "@/styles/helpers.scss" as *;
       `,
       },
     },

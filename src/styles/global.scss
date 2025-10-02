@@ -1,43 +1,86 @@
-/* Global */
+
+/* Root variables */
 :root {
-  padding: 0;
-  margin: 0;
-  font-family: 'Jost', sans-serif;
+  --font-main: 'Jost', sans-serif;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* фиксирует "прыжки" макета при появлении/исчезновении скроллбара */
+  scrollbar-gutter: stable both-edges;
+
+  /* сглаживание текста */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Print settings */
-@page {
-  size: A4 landscape;
-}
-
-/* Base behavior for all elements */
+/* Reset базовых отступов */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-ul {
+
+/* Ссылки */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: background-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: hsla(160, 100%, 37%, 0.2);
+    }
+  }
+}
+
+/* Списки */
+ul,
+ol {
   padding-inline-start: 24px;
   margin-block-start: 0.2rem;
   margin-block-end: 0.2rem;
 }
 
+/* html & body */
 html {
   height: 100%;
   width: 100%;
-  scrollbar-gutter: stable both-edges;
-  font-size: 16px;
 }
 
 body {
-  height: inherit;
-  width: inherit;
-  /* mobile viewport bug fix */
-  height: -webkit-fill-available;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
   margin: 0;
+  scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  /* фиксим mobile viewport баг (особенно iOS Safari) */
+  min-height: -webkit-fill-available;
+
+  /* только горизонтальный скролл отключаем, вертикальный оставляем */
+  // overflow-x: hidden;
+}
+
+/* Vue root */
+#app {
+  min-height: 100%;
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+/* Tables (часто нужны в админках/дашбордах) */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
 }

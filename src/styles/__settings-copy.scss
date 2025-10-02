@@ -1,0 +1,111 @@
+/**
+ * src/styles/settings.scss
+ * Упрощенная система тем
+ */
+
+@use 'sass:map';
+
+// ============================================
+// ОПРЕДЕЛЯЕМ ТЕМУ НАПРЯМУЮ В ПЕРЕМЕННЫХ С !default
+// ============================================
+
+// Выбор темы
+$theme-name: 'light' !default; // 'light', 'dark', 'blue'
+
+// Определяем темы
+$themes: (
+  'light': (
+    'primary': #2E8B57,
+    'secondary': #FF6B35,
+    'accent': #2196F3,
+    'error': #F44336,
+    'warning': #FF9800,
+    'info': #2196F3,
+    'success': #4CAF50,
+    'surface': #FFFFFF,
+    'background': #F5F5F5,
+    'on-primary': #FFFFFF,
+    'on-secondary': #FFFFFF,
+    'on-surface': #000000,
+  ),
+  'dark': (
+    'primary': #4CAF50,
+    'secondary': #FF7043,
+    'accent': #448AFF,
+    'error': #FF5252,
+    'warning': #FFB74D,
+    'info': #448AFF,
+    'success': #69F0AE,
+    'surface': #121212,
+    'background': #000000,
+    'on-primary': #000000,
+    'on-secondary': #000000,
+    'on-surface': #FFFFFF,
+  ),
+  'blue': (
+    'primary': #1976D2,
+    'secondary': #FF4081,
+    'accent': #536DFE,
+    'error': #FF5252,
+    'warning': #FFB74D,
+    'info': #448AFF,
+    'success': #4CAF50,
+    'surface': #FFFFFF,
+    'background': #F5F5F5,
+    'on-primary': #FFFFFF,
+    'on-secondary': #FFFFFF,
+    'on-surface': #000000,
+  )
+);
+
+// Функция для получения цвета
+@function theme($key) {
+  $theme: map.get($themes, $theme-name);
+  @return map.get($theme, $key);
+}
+
+// ============================================
+// ПЕРЕОПРЕДЕЛЯЕМ ПЕРЕМЕННЫЕ VUETIFY
+// ============================================
+
+// Цвета
+$primary: theme('primary') !default;
+$secondary: theme('secondary') !default;
+$accent: theme('accent') !default;
+$error: theme('error') !default;
+$warning: theme('warning') !default;
+$info: theme('info') !default;
+$success: theme('success') !default;
+$surface: theme('surface') !default;
+$background: theme('background') !default;
+$on-primary: theme('on-primary') !default;
+$on-secondary: theme('on-secondary') !default;
+$on-surface: theme('on-surface') !default;
+
+// Шрифты
+$body-font-family: 'Jost, sans-serif' !default;
+$heading-font-family: 'Jost, sans-serif' !default;
+
+// Брейкпоинты
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+) !default;
+
+// Радиусы
+$button-border-radius: 8px !default;
+$card-border-radius: 12px !default;
+$border-radius-root: 6px !default;
+
+// ============================================
+// ИМПОРТИРУЕМ VUETIFY С НАШИМИ ПЕРЕМЕННЫМИ
+// ============================================
+@use 'vuetify/settings' with (
+  $color-pack: true,
+
+  // Все переменные уже переопределены выше с !default
+  // Vuetify автоматически подхватит их
+);
