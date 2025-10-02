@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
+// import HelloWorld from './components/HelloWorld.vue';
 import OfficeGeo from '@/components/OfficeGeo.vue';
 import SiteBanner from '@/components/SiteBanner.vue';
 import DentLifeHeader from '@/components/DentLifeHeader.vue';
 import DentLifeFooter from '@/components/DentLifeFooter.vue';
-
+import CardsWrapper from '@/components/CardsWrapper.vue';
 </script>
 
 <template>
@@ -13,9 +13,10 @@ import DentLifeFooter from '@/components/DentLifeFooter.vue';
     <DentLifeHeader />
     <v-main>
       <v-container max-width="1280">
-        <SiteBanner />
-        <h1>Main Content</h1>
-        <HelloWorld msg="You did it!" />
+        <SiteBanner class="mb-10" />
+        <CardsWrapper class="mb-5" />
+        <!-- <h1>Main Content</h1> -->
+        <!-- <HelloWorld msg="You did it!" /> -->
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>

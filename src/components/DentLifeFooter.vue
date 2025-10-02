@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 interface Props {
   options?: Record<string, unknown>;
@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'];
 const defaultOptions: Record<string, unknown> = {};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const mainOptions = computed(() => ({
   ...props.options,
   ...defaultOptions,
