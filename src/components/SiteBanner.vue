@@ -23,8 +23,9 @@ const mainOptions = computed(() => ({
 </script>
 
 <template>
-  <div class="banner faded-img" :style="{ backgroundImage: `url(${backgroundImg})` }">
-    <div class="banner__content card">
+  <div class="banner faded-border-thin" :style="{ backgroundImage: `url(${backgroundImg})` }">
+    <h1 class="banner__slogan" v-html="mainOptions.slogan || 'Default slogan text'" />
+    <v-card class="banner__card card" min-height="240" max-width="420" rounded="lg" color="white">
       <div class="card__left-side">
         <v-img class="card__image" :src="personPhoto" min-width="160" />
         <div class="card__doctor-name">{{ mainOptions.doctor_name }}</div>
@@ -37,7 +38,7 @@ const mainOptions = computed(() => ({
         <h3 class="card__title">Welcome to Dent-Life</h3>
         <p class="card__subtitle">{{ mainOptions.text }}</p>
       </div>
-    </div>
+    </v-card>
   </div>
 </template>
 
@@ -48,8 +49,25 @@ const mainOptions = computed(() => ({
   background-size: cover;
   background-position: center 47%;
   position: relative;
-  border-radius: 16px;
+  // border-radius: 16px;
   // filter: brightness(1.25) blur(2px);
+  &__slogan {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Jost, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    // color: rgb(var(--v-theme-secondary));
+    color: white;
+    text-align: center;
+    z-index: 100;
+    width: 100%;
+    // max-width: 600px;
+    padding: 0 20px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   &::after {
     content: '';
     position: absolute;
@@ -57,28 +75,22 @@ const mainOptions = computed(() => ({
     backdrop-filter: blur(2px) brightness(1.25);
     background: rgba(255, 255, 255, 0.2); /* нужна прозрачность, чтобы фон был виден */
   }
-  &__content {
+  &__card {
     position: absolute;
-    min-height: 240px;
     left: 50px;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
-    max-width: 40%;
-    margin: 0 auto;
-    padding: 20px;
-    top: 50%;
-    border-radius: 8px;
     transition: transform 0.3s ease;
-    background: rgba(255, 255, 255, 0.85);
     z-index: 100;
-    background-position: right bottom;
-    background-size: 50%;
-    background-repeat: no-repeat;
   }
   .card {
     display: flex;
     gap: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    background-size: 50%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
     &__image {
       border-radius: 8px;
     }
@@ -110,7 +122,7 @@ const mainOptions = computed(() => ({
     }
   }
 }
-.faded-img {
+.faded-border {
   -webkit-mask-image:
     linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%),
     linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
@@ -120,15 +132,16 @@ const mainOptions = computed(() => ({
   mask-image:
     linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%),
     linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
+}
+.faded-border-thin {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, black 3%, black 95%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 3%, black 95%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
 
-  // -webkit-mask-image:
-  //   linear-gradient(to right, transparent 0, black 3%, black 95%, transparent 100%),
-  //   linear-gradient(to bottom, transparent 0, black 3%, black 95%, transparent 100%);
-  // -webkit-mask-composite: destination-in;
-  // mask-composite: intersect;
-
-  // mask-image:
-  //   linear-gradient(to right, transparent 0, black 1%, black 99%, transparent 100%),
-  //   linear-gradient(to bottom, transparent 0, black 3%, black 97%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0, black 1%, black 99%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 3%, black 97%, transparent 100%);
 }
 </style>
