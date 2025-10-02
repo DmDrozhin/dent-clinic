@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { LANGUAGES, META } from '@/settings/Dent-Life.ts';
+import { LANGUAGES, META, CARDS } from '@/settings/Dent-Life.ts';
 import { createAssetMap } from '@/utils/assets.ts';
 
 export const useMaineStore = defineStore('main', () => {
@@ -17,5 +17,14 @@ export const useMaineStore = defineStore('main', () => {
   const userIconsMap = createAssetMap(userIcons);
   const currentMeta = computed(() => META[currentLang.value as 'ua' | 'ru' | 'en'] || META.ua);
 
-  return { currentLang, updateLanguage, userIconsMap, currentMeta };
+  const currentCards = computed(() => {
+    const cards = CARDS[currentLang.value as 'ua' | 'ru' | 'en'] || CARDS.ua;
+    return cards.map(card => ({
+      ...card,
+      // если имя есть в userIconsMap — подставляем путь
+      image: userIconsMap[card.image] || card.image,
+    }));
+  });
+
+  return { currentLang, updateLanguage, userIconsMap, currentMeta, currentCards };
 });
