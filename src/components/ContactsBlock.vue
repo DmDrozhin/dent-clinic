@@ -2,6 +2,8 @@
 import { computed } from 'vue';
 import { CONTACTS } from '@/settings/Dent-Life.ts';
 import { useMaineStore } from '@/stores/main.store.ts';
+import DentLifeLogo from '@/components/DentLifeLogo.vue';
+import { formatPhone } from '@/utils/assets.ts';
 
 const store = useMaineStore();
 interface Props {
@@ -22,21 +24,6 @@ const mainOptions = computed(() => ({
   ...CONTACTS,
 }));
 
-// --- форматирование телефонов ---
-function formatPhone(num: string): string {
-  if (!num) return '';
-  // убираем всё кроме цифр
-  const digits = num.replace(/\D/g, '');
-  // если номер в украинском формате (10 цифр после кода 0)
-  if (digits.length === 10) {
-    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 8)}-${digits.slice(8)}`;
-  }
-  // если международный (например +380...)
-  if (digits.length === 12 && digits.startsWith('380')) {
-    return `(${digits.slice(2, 5)}) ${digits.slice(5, 8)}-${digits.slice(8, 10)}-${digits.slice(10)}`;
-  }
-  return num; // fallback
-}
 const formattedPhones = computed(() => ({
   phone1: formatPhone(mainOptions.value.phone_1),
   phone2: formatPhone(mainOptions.value.phone_2),
@@ -46,19 +33,13 @@ const formattedPhones = computed(() => ({
 
 <template>
   <div class="contacts">
-    <div class="contacts__wrapper title">
-      <v-img
-        class="marker__image"
-        :src="store.userIconsMap['logo-green.svg']"
-        max-width="32"
-        alt="logo"
-      />
-      <h2 class="contacts__company-name">{{ mainOptions.name }}</h2>
-    </div>
+    <DentLifeLogo
+      :options="{ mainHeader: false, maxWidth: 32, light: false, customClass: 'dl-center' }"
+    />
     <v-divider class="my-3" />
     <div class="contacts__content">
       <div v-if="mainOptions.address" class="contacts__wrapper meta address">
-        <v-img :src="store.userIconsMap['meta-geo.svg']" width="20" />
+        <v-img :src="store.userIconsMap['meta-geo.svg']" max-width="20" />
         <div class="contacts__address" v-html="mainOptions.address"></div>
       </div>
       <div v-if="mainOptions.phone_1 || mainOptions.phone_2" class="contacts__wrapper meta">
@@ -99,13 +80,6 @@ const formattedPhones = computed(() => ({
 .contacts {
   width: 100%;
   min-height: 50px;
-  &__company-name {
-    font-size: 1.5rem;
-    letter-spacing: 0.15rem;
-    font-weight: 600;
-    margin: 0;
-    color: green;
-  }
   &__content {
     position: relative;
   }
@@ -119,12 +93,10 @@ const formattedPhones = computed(() => ({
       color: black;
       gap: 12px;
     }
-    &.title {
-      justify-content: center;
-    }
   }
-  &__address, &__schedule {
-    padding: 3px;
+  &__address,
+  &__schedule {
+    padding: 2px 4px;
   }
 }
 </style>

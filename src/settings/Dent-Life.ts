@@ -2,6 +2,11 @@ interface metaInfo {
   name: string;
   description: string;
   keywords: string; // SEO keywords
+  banner: {
+    text: string;
+    doctor_name: string;
+    doctor_title: string;
+  };
   address: string;
   schedule: string;
 }
@@ -14,6 +19,11 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       "Стоматологічна клініка Dent-Life - сучасний підхід до вашого здоров'я та посмішки.",
     keywords:
       "стоматологія, клініка, Dent-Life, лікування зубів, профілактика, посмішка, здоров'я ротової порожнини", // SEO keywords
+    banner: {
+      text: 'Стоматологія - наука, переважно прикладна, тому хороший стоматолог - це, як талановитий художник. Насправді неважливо які у лікаря дипломи та регалії, а важливо які у нього руки.',
+      doctor_name: 'Максименко Олег В\'ячеславович',
+      doctor_title: 'лікар-стоматолог, терапевт',
+    }
   },
   ru: {
     name: 'Дент-Лайф',
@@ -23,6 +33,11 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       'Стоматологическая клиника Dent-Life - современный подход к вашему здоровью и улыбке.',
     keywords:
       'стоматология, клиника, Dent-Life, лечение зубов, профилактика, улыбка, здоровье ротовой полости', // SEO keywords
+    banner: {
+      text: 'Стоматология - наука, по большей части прикладная, поэтому хороший стоматолог - это, как талантливый художник. На самом деле неважно какие у врача дипломы и регалии, а важно какие у него руки.',
+      doctor_name: 'Максименко Олег Вячеславович',
+      doctor_title: 'врач-стоматолог, терапевт',
+    }
   },
   en: {
     name: 'Dent-Life',
@@ -30,6 +45,11 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
     schedule: 'Mon-Sat 9:00-19:00 <br> Sun - closed',
     description: 'Dent-Life Dental Clinic - a modern approach to your health and smile.',
     keywords: 'dentistry, clinic, Dent-Life, dental treatment, prevention, smile, oral health', // SEO keywords
+    banner: {
+      text: 'Dentistry is a science, mostly applied, so a good dentist is like a talented artist. In fact, it does not matter what diplomas and regalia the doctor has, but what kind of hands he has.',
+      doctor_name: 'Maksymenko Oleg Vyacheslavovich',
+      doctor_title: 'dentist-therapist',
+    }
   },
 };
 interface contactInfo {
