@@ -5,7 +5,7 @@ const customTheme = {
       colors: {
         primary: '#51ACAA',
         secondary: '#018786',
-        background: '#FFFFFF',
+        background: '#F5F5F5',
         surface: '#E6E6E6',
         error: '#B00020',
         success: '#4CAF50',
