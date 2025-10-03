@@ -9,7 +9,7 @@ const store = useMaineStore();
 interface Props {
   options?: Record<string, unknown>;
 }
-const backgroundImg = getImagePath('top-banner-girl-2.jpg');
+const backgroundImg = getImagePath('top-banner.jpg');
 const personPhoto = getImagePath('dent-life-oleg.jpg');
 const cardBg = getImagePath('instrument.png');
 const props = withDefaults(defineProps<Props>(), {

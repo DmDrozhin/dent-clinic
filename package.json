@@ -1,6 +1,7 @@
 {
   "name": "dent-life",
   "version": "0.0.1",
+  "homepage": "https://DmDrozhin.github.io/dent-clinic",
   "private": true,
   "type": "module",
   "engines": {

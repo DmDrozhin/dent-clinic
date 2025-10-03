@@ -7,7 +7,8 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({mode}) => ({
+  base: mode === 'production' ? '/dent-clinic/' : '/',
   plugins: [
     vue({
       template: { transformAssetUrls },
@@ -41,4 +42,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
