@@ -2,15 +2,18 @@
 import { computed, ref, watch } from 'vue';
 import DentLifeLogo from '@/components/DentLifeLogo.vue';
 import LangSwitcher from '@/components/LangSwitcher.vue';
+import PhonesBlock from '@/components/PhonesBlock.vue';
+import { useDisplay } from 'vuetify';
 
 interface Props {
   options?: Record<string, unknown>;
 }
 
+const { smAndDown, xlAndUp, width } = useDisplay();
 const props = withDefaults(defineProps<Props>(), {
   options: () => ({}),
 });
-
+const xxs = computed(() => width.value < 400);
 const defaultOptions: Record<string, unknown> = {};
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const mainOptions = computed(() => ({
@@ -53,16 +56,7 @@ const menuButtons = [
     value: 'buzz',
   },
 ];
-const langButtons = [
-  {
-    title: 'UA',
-    value: 'ua',
-  },
-  {
-    title: 'EN',
-    value: 'en',
-  },
-];
+
 const drawer = ref(false);
 const group = ref(null);
 
@@ -76,24 +70,29 @@ watch(group, () => {
     <v-container class="dl-container mx-auto" max-width="1280">
       <div class="header-block">
         <DentLifeLogo :options="{ mainHeader: true, maxWidth: 40, light: true, customClass: '' }" />
-        <v-btn-toggle
-          :key="101"
-          v-model="group"
-          class="d-none d-md-flex"
-          variant="text"
-          density="comfortable"
-          mandatory
-          base-color="white"
-        >
-          <v-btn v-for="item in menuButtons" :key="item.value">
-            {{ item.title }}
-          </v-btn>
-        </v-btn-toggle>
+        <div class="d-flex align-center justify-between">
+          <v-btn-toggle
+            v-if="xlAndUp"
+            :key="101"
+            v-model="group"
+            class="d-none d-md-flex"
+            variant="text"
+            density="comfortable"
+            mandatory
+            base-color="white"
+          >
+            <v-btn v-for="item in menuButtons" :key="item.value">
+              {{ item.title }}
+            </v-btn>
+          </v-btn-toggle>
 
-        <LangSwitcher />
-
-        <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <!-- <v-btn icon="mdi-dots-vertical" variant="text"></v-btn> -->
+          <PhonesBlock v-if="!smAndDown" />
+          <div class="d-flex align-center">
+            <LangSwitcher v-if="!xxs" class="mr-3" />
+            <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+          </div>
+          <!-- <v-btn icon="mdi-dots-vertical" variant="text"></v-btn> -->
+        </div>
       </div>
     </v-container>
   </v-app-bar>
