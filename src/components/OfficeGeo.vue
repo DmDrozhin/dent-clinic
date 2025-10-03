@@ -78,7 +78,7 @@ watchEffect(() => {
               <v-img
                 class="dent-life-sign__image"
                 :src="userIconsMap['logo-white.svg']"
-                width="12"
+                max-width="14"
                 alt="logo"
               />
               <span class="dent-life-sign__text">{{ markerOptions.title }}</span>
@@ -98,10 +98,10 @@ watchEffect(() => {
     .dent-life-sign {
       $sign-color: rgb(var(--v-theme-secondary));
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
       background-color: $sign-color;
       padding: 8px 12px;
       border-radius: 4px;
