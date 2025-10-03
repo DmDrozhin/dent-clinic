@@ -20,7 +20,7 @@ const selectedLanguage = computed(() => {
   return ['uk', 'en', 'ru'].includes(lang || '') ? lang : 'uk';
 });
 
-const mapKey = props.options.apiKey || import.meta.env.VITE_GOOGLE_API_KEY;
+const mapKey = props.options.apiKey || import.meta.env.VITE_GOOGLE_MAP_API_KEY;
 const mapId = props.options.apiKey || import.meta.env.VITE_GOOGLE_GRAY_MAP_ID;
 
 const region = ref('UA');
