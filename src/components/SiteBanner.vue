@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, watchEffect } from 'vue';
 import { getImagePath } from '@/utils/assets.ts';
 import { useMaineStore } from '@/stores/main.store.ts';
+import { useDisplay } from 'vuetify';
+
 const store = useMaineStore();
 
 interface Props {
@@ -14,6 +16,11 @@ const props = withDefaults(defineProps<Props>(), {
   options: () => ({}),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { xs, mdAndDown, mdAndUp, lg, xl, xlAndUp } = useDisplay();
+
+watchEffect(() => console.log("is XL", xl.value));
+
 const defaultOptions: Record<string, unknown> = {};
 const mainOptions = computed(() => ({
   ...props.options,
@@ -25,36 +32,40 @@ const mainOptions = computed(() => ({
 <template>
   <div class="banner faded-border-thin" :style="{ backgroundImage: `url(${backgroundImg})` }">
     <h1 class="banner__slogan" v-html="mainOptions.slogan || 'Default slogan text'" />
-    <v-card class="banner__card card" min-height="240" max-width="420" rounded="lg" color="white">
+    <v-card v-if="!xs" class="banner__card card" min-height="240" max-width="420" rounded="lg">
       <div class="card__left-side">
         <v-img class="card__image" :src="personPhoto" min-width="160" />
-        <div class="card__doctor-name">{{ mainOptions.doctor_name }}</div>
-        <div class="card__doctor-title">{{ mainOptions.doctor_title }}</div>
+        <div v-if="mdAndUp" class="card__doctor-name">{{ mainOptions.doctor_name }}</div>
+        <div v-if="mdAndUp" class="card__doctor-title">{{ mainOptions.doctor_title }}</div>
       </div>
       <div class="card__right-side">
         <div class="card__right-side-bg">
           <v-img class="card__image" :src="cardBg" min-width="160" />
         </div>
         <h3 class="card__title">Welcome to Dent-Life</h3>
-        <p class="card__subtitle">{{ mainOptions.text }}</p>
+        <div class="card__subtitle">{{ mainOptions.text }}</div>
       </div>
     </v-card>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@use '@/styles/settings.scss';
 .banner {
   width: 100%;
   min-height: 400px;
   background-size: cover;
   background-position: center 47%;
   position: relative;
+  min-width: 320px;
   // border-radius: 16px;
   // filter: brightness(1.25) blur(2px);
+
   &__slogan {
     position: absolute;
-    top: 7px;
+    top: 8px;
     left: 50%;
+    padding: 0 12px;
     transform: translateX(-50%);
     font-family: Jost, sans-serif;
     font-size: 2rem;
@@ -64,9 +75,12 @@ const mainOptions = computed(() => ({
     text-align: center;
     z-index: 100;
     width: 100%;
-    // max-width: 600px;
-    padding: 0 20px;
+    text-wrap: pretty;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    @include settings.respond-down(sm) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   &::after {
     content: '';
@@ -78,10 +92,24 @@ const mainOptions = computed(() => ({
   &__card {
     position: absolute;
     left: 50px;
-    top: 50%;
+    top: 52%;
     transform: translateY(-50%);
     transition: transform 0.3s ease;
     z-index: 100;
+    @include settings.respond-down(md) {
+      // Использовать MD порог (768px)
+      top: auto;
+      left: 32px;
+      bottom: 32px;
+      transform: none;
+      outline: 1px solid greenyellow;
+      outline-offset: 4px;
+    }
+    @include settings.respond-down(xs) {
+      outline: 1px solid rgb(255, 47, 151);
+      outline-offset: 4px;
+      display: none;
+    }
   }
   .card {
     display: flex;
@@ -110,6 +138,21 @@ const mainOptions = computed(() => ({
     }
     &__right-side {
       position: relative;
+    }
+    &__title {
+      font-family: Jost, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: rgb(var(--v-theme-secondary));
+      line-height: 1;
+    }
+    &__subtitle {
+      font-family: Jost, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      overflow: auto;
+      padding-right: 8px;
     }
     &__right-side-bg {
       position: absolute;
