@@ -22,7 +22,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       keywords:
       "стоматологія, клініка, Dent-Life, лікування зубів, профілактика, посмішка, здоров'я ротової порожнини", // SEO keywords
       banner: {
-        slogan: "<span class='slogan'>Стоматологія для всієї родини!</span><span class='slogan-location'>&nbsp;місто Вишневе</span>",
+        slogan: "<span class='slogan'>Стоматологія для всієї родини!</span><span class='slogan-location'>&nbsp;<span>місто Вишневе</span>",
         text: 'Стоматологія - наука, переважно прикладна, тому хороший стоматолог - це, як талановитий художник. Насправді неважливо які у лікаря дипломи та регалії, а важливо які у нього руки.',
       doctor_name: "Максименко Олег В'ячеславович",
       doctor_title: 'лікар-стоматолог, терапевт',
@@ -37,7 +37,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       keywords:
       'стоматология, клиника, Dent-Life, лечение зубов, профилактика, улыбка, здоровье ротовой полости', // SEO keywords
       banner: {
-        slogan: "<span class='slogan'>Стоматология для всей семьи!</span><span class='slogan-location'>город Вишневое</span>",
+        slogan: "<span class='slogan'>Стоматология для всей семьи!</span><span class='slogan-location'>&nbsp;<span>город Вишневое</span>",
         text: 'Стоматология - наука, преимущественно прикладная, поэтому хороший стоматолог - это, как талантливый художник. На самом деле неважно какие у врача дипломы и регалии, а важно какие у него руки.',
       doctor_name: 'Максименко Олег Вячеславович',
       doctor_title: 'врач-стоматолог, терапевт',
@@ -50,7 +50,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
     description: 'Dent-Life Dental Clinic - a modern approach to your health and smile.',
     keywords: 'dentistry, clinic, Dent-Life, dental treatment, prevention, smile, oral health', // SEO keywords
     banner: {
-      slogan: "<span class='slogan'>Dentistry for the whole family!</span><span class='slogan-location'>Vishneve city</span>",
+      slogan: "<span class='slogan'>Dentistry for the whole family!</span><span class='slogan-location'>&nbsp;<span>Vishneve city</span>",
       text: 'Dentistry is a science, mostly applied, so a good dentist is like a talented artist. In fact, it does not matter what diplomas and regalia the doctor has, but what kind of hands he has.',
       doctor_name: 'Maksymenko Oleg Vyacheslavovich',
       doctor_title: 'dentist-therapist',
@@ -132,9 +132,6 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Лікування коренів зубів',
-        },
-        {
-          title: 'Лікування ясен',
         }
       ],
     },
@@ -184,7 +181,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
       title: 'Рентген діагностика',
       image: 'dl-x-ray.svg',
       image_size: 48,
-      details: [{ title: 'Прицільний знімок' }, { title: 'Ортопантомограма (панорамний знімок)' }],
+      details: [{ title: 'Прицільний знімок' }],
     },
     {
       id: 6,
@@ -243,9 +240,6 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Лечение корней зубов',
-        },
-        {
-          title: 'Лечение десен',
         }
       ],
     },
@@ -295,7 +289,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
       title: 'Рентген диагностика',
       image: 'dl-x-ray.svg',
       image_size: 48,
-      details: [{ title: 'Прицельный снимок' }, { title: 'Ортопантомограмма (панорамный снимок)' }],
+      details: [{ title: 'Прицельный снимок' }],
     },
     {
       id: 6,
@@ -355,9 +349,6 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Root canal treatment',
-        },
-        {
-          title: 'Gum treatment',
         }
       ],
     },
@@ -407,7 +398,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
       title: 'X-ray diagnostics',
       image: 'dl-x-ray.svg',
       image_size: 48,
-      details: [{ title: 'Targeted image' }, { title: 'Orthopantomogram (panoramic image)' }],
+      details: [{ title: 'Targeted image' }],
     },
     {
       id: 6,
