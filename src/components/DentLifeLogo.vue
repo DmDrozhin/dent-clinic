@@ -56,10 +56,37 @@ const mainOptions = computed(() => ({
 </template>
 
 <style lang="scss" scoped>
+@use '@/styles/settings.scss';
 .dent-life-logo {
   display: flex;
   align-items: center;
   gap: 12px;
+
+  &.main-logo {
+    gap: 16px;
+    @include settings.respond-down(sm) {
+      gap: 12px;
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      gap: 4px;
+      h1 {
+        font-size: 1.5rem;
+      }
+      .dent-life-logo {
+        &__image {
+          max-width: 32px !important;
+          max-height: 32px !important;
+        }
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
   &.dl-center {
     justify-content: center;
   }
@@ -69,6 +96,7 @@ const mainOptions = computed(() => ({
     font-size: 1.5rem;
     letter-spacing: 0.15rem;
     font-weight: 600;
+    white-space: nowrap;
   }
   &__title.main {
     font-weight: 700;
