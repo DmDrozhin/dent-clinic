@@ -16,10 +16,10 @@ export default defineConfig({
     vueDevTools(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
-      // autoImport: true,
-      // styles: {
-      //   configFile: 'src/styles/settings.scss',
-      // },
+      autoImport: true,
+      styles: {
+        configFile: 'src/styles/settings.scss',
+      },
     }),
   ],
   resolve: {

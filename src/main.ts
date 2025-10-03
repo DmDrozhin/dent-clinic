@@ -5,6 +5,7 @@ import vuetify from '@/plugins/vuetify.config.ts';
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import '@mdi/font/css/materialdesignicons.css'
+import './styles/overrides.scss'
 
 import App from './App.vue'
 import router from './router'

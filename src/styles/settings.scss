@@ -1,4 +1,21 @@
 @use 'sass:map';
+
+@forward 'vuetify/settings' with (
+  $grid-breakpoints: (
+    'xs': 0,
+    'sm': 576px,
+    // Было 600px
+    'md': 768px,
+    // Было 960px
+    'lg': 992px,
+    // Было 1280px
+    'xl': 1200px,
+    // Было 1920px
+    'xxl': 1400px,
+    // Было 2560px
+  )
+);
+@use 'vuetify/settings' as vuetify-settings;
 // === Сбрасываем box-sizing ===
 *,
 *::before,
@@ -9,21 +26,32 @@
 }
 
 // === Глобальные стили ===
-html, body {
+html,
+body {
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  // font-family: 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// === Миксин для брейкпоинтов ===
-@mixin respond-to($breakpoint) {
-  $value: map.get($grid-breakpoints, $breakpoint);
-
-  @if $value != null {
+// 4. Использование ПСЕВДОНИМА 'vuetify-settings' в миксинах
+// Теперь переменные Vuetify (используемые в map.get) должны быть доступны.
+@mixin respond-up($breakpoint) {
+  // Доступ к переопределенной карте брейкпоинтов через псевдоним
+  $value: map.get(vuetify-settings.$grid-breakpoints, $breakpoint);
+  @if $value {
     @media (min-width: $value) {
       @content;
     }
   }
 }
 
+@mixin respond-down($breakpoint) {
+  // Доступ к переопределенной карте брейкпоинтов через псевдоним
+  $next-value: map.get(vuetify-settings.$grid-breakpoints, $breakpoint);
+  @if $next-value {
+    @media (max-width: #{$next-value - 0.02}) {
+      @content;
+    }
+  }
+}
