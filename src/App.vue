@@ -11,7 +11,7 @@ import CardsWrapper from '@/components/CardsWrapper.vue';
 <template>
   <v-app class="dent-life-app">
     <DentLifeHeader />
-    <v-main>
+    <v-main min-width="320">
       <v-container max-width="1280">
         <SiteBanner class="mb-10" />
         <CardsWrapper class="mb-5" />
@@ -32,6 +32,7 @@ import CardsWrapper from '@/components/CardsWrapper.vue';
 <style lang="scss" scoped>
 .dent-life-app {
   outline: 1px solid rgba(11, 88, 221, 0.393);
+  min-width: 320px;
 }
 .dl-container {
   outline: 1px solid rgba(221, 11, 88, 0.393);
