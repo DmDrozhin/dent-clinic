@@ -61,7 +61,13 @@ const mainOptions = computed(() => ({
   display: flex;
   align-items: center;
   gap: 12px;
-
+  &.compact {
+    .dent-life-logo {
+      &__title {
+        font-size: 1rem;
+      }
+    }
+  }
   &.main-logo {
     gap: 16px;
     @include settings.respond-down(sm) {

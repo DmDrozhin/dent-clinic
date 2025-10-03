@@ -56,7 +56,7 @@ watchEffect(() => {
 <template>
   <v-menu>
     <template v-slot:activator="{ props }">
-      <v-btn outlined color="white" v-bind="props" class="d-flex align-center">
+      <v-btn variant="text" color="white" v-bind="props" class="d-flex align-center">
         <v-img :src="selectedItem.image" width="20" class="me-2" />
         {{ selectedItem.title }}
       </v-btn>

@@ -34,7 +34,7 @@ const mainOptions = computed(() => ({
 .address {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   &__icon {
     width: 100%;
     flex-shrink: 0;
@@ -50,10 +50,10 @@ const mainOptions = computed(() => ({
     content: '';
     position: absolute;
     display: block;
-    left: -8px;
+    left: -10px;
     top: 4px;
     bottom: 4px;
-    width: 1px;
+    width: 0.5px;
     background-color: $white;
   }
 }
