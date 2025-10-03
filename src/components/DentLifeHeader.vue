@@ -70,7 +70,7 @@ watch(group, () => {
     <v-container class="dl-container mx-auto" max-width="1280">
       <div class="header-block">
         <DentLifeLogo :options="{ mainHeader: true, maxWidth: 40, light: true, customClass: '' }" />
-        <div class="d-flex align-center justify-between">
+        <div class="d-flex align-center justify-between ga-2">
           <v-btn-toggle
             v-if="xlAndUp"
             :key="101"

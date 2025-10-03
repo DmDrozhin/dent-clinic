@@ -40,7 +40,7 @@ const mainOptions = computed(() => ({
     hover
     min-width="300"
     max-width="360"
-    min-height="250"
+    min-height="205"
     width="100%"
     rounded="lg"
     color="white"

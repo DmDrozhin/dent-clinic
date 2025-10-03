@@ -15,24 +15,8 @@
     // Было 2560px
   )
 );
-@use 'vuetify/settings' as vuetify-settings;
-// === Сбрасываем box-sizing ===
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-// === Глобальные стили ===
-html,
-body {
-  height: 100%;
-  // font-family: 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@use 'vuetify/settings' as vuetify-settings;
 
 // 4. Использование ПСЕВДОНИМА 'vuetify-settings' в миксинах
 // Теперь переменные Vuetify (используемые в map.get) должны быть доступны.

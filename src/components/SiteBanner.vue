@@ -69,14 +69,15 @@ const mainOptions = computed(() => ({
     transform: translateX(-50%);
     font-family: Jost, sans-serif;
     font-size: 2rem;
-    font-weight: 600;
-    // color: rgb(var(--v-theme-secondary));
+    // font-weight: 600;
+    font-weight: 900;
     color: white;
     text-align: center;
     z-index: 100;
     width: 100%;
     text-wrap: pretty;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    // text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     @include settings.respond-down(sm) {
       top: 50%;
       transform: translate(-50%, -50%);
@@ -102,7 +103,7 @@ const mainOptions = computed(() => ({
       left: 32px;
       bottom: 32px;
       transform: none;
-      outline: 1px solid greenyellow;
+      outline: 1px solid rgba(172, 255, 47, 0.546);
       outline-offset: 4px;
     }
     @include settings.respond-down(xs) {
