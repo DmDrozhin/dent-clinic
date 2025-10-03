@@ -135,10 +135,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Лікування ясен',
-        },
-        {
-          title: 'Лікування зубів під наркозом',
-        },
+        }
       ],
     },
     {
@@ -249,10 +246,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Лечение десен',
-        },
-        {
-          title: 'Лечение зубов под наркозом',
-        },
+        }
       ],
     },
     {
@@ -364,8 +358,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo[]> = {
         },
         {
           title: 'Gum treatment',
-        },
-        { title: 'Dental treatment under anesthesia' },
+        }
       ],
     },
     {
