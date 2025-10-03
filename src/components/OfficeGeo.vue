@@ -8,7 +8,7 @@ import { useMaineStore } from '@/stores/main.store.ts';
 interface Props {
   options?: Record<string, unknown>;
 }
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   options: () => ({}),
 });
 
@@ -20,8 +20,8 @@ const selectedLanguage = computed(() => {
   return ['uk', 'en', 'ru'].includes(lang || '') ? lang : 'uk';
 });
 
-const mapKey = props.options.apiKey || import.meta.env.VITE_GOOGLE_MAP_API_KEY;
-const mapId = props.options.apiKey || import.meta.env.VITE_GOOGLE_GRAY_MAP_ID;
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+const styleKey = import.meta.env.VITE_GOOGLE_GRAY_MAP;
 
 const region = ref('UA');
 const center = { lat: 50.3891, lng: 30.382977 };
@@ -42,15 +42,27 @@ const infoWindow = ref(true); // Will be open when mounted
 
 const userIcons = import.meta.glob<{ default: string }>('@/assets/images/ui/*', { eager: true });
 const userIconsMap = createAssetMap(userIcons);
+
+watchEffect(() => {
+  if (mapRef.value?.ready && mapRef.value.map) {
+    mapRef.value.map.setOptions({
+      streetViewControl: false, // убираем Pegman
+      mapTypeControl: false,
+      fullscreenControl: false,
+      zoomControl: true, // оставляем масштаб
+      disableDefaultUI: false, // отключает все стандартные кнопки (если true)
+    });
+  }
+});
 </script>
 
 <template>
   <div class="map-block">
-    <v-alert v-if="!mapKey" type="error" class="mb-4"> Google Maps API Key is missing! </v-alert>
+    <v-alert v-if="!apiKey" type="error" class="mb-4"> Google Maps API Key is missing! </v-alert>
     <v-card>
       <GoogleMap
-        :api-key="mapKey"
-        :map-id="mapId"
+        :api-key="apiKey"
+        :map-id="styleKey"
         language="uk"
         :region="region"
         :center="center"
@@ -58,6 +70,7 @@ const userIconsMap = createAssetMap(userIcons);
         style="width: 100%; height: 500px"
         ref="mapRef"
         class="map-block__google-map"
+        :options="{ disableDefaultUI: true }"
       >
         <AdvancedMarker class="advanced-marker" :options="{ position: markerOptions.position }">
           <template #content>
@@ -150,6 +163,12 @@ const userIconsMap = createAssetMap(userIcons);
         padding-top: 24px;
       }
     }
+    // removes Pegman in the bottom right corner, brutal way
+    // .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+    //   .gm-svpc {
+    //     display: none !important;
+    //   }
+    // }
   }
 }
 </style>
