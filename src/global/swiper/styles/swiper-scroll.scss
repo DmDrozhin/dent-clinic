@@ -11,22 +11,26 @@ swiper-container::part(scrollbar) {
 swiper-container.in-transition::part(wrapper) {
   transition: transform 0.3s ease-in !important;
 }
+// Scrollbar drag color
+:root {
+  --swiper-scrollbar-drag-bg-color: #51acaa;
+}
 
 // VERTICAL STYLES |||
-.tf-swiper-vertical {
+.-swiper-vertical {
   padding-top: 12px; // prev 6
   padding-left: 6px;
 }
 swiper-container[direction='vertical'] {
   --swiper-scrollbar-bg-color: transparent;
-  --swiper-scrollbar-drag-bg-color: #abafb2;
+  --swiper-scrollbar-size: 6px;
   --swiper-scrollbar-sides-offset: 3px; // 1%;
   --swiper-scrollbar-right: 4px; // prev 0
 }
-swiper-container.tf-swiper-vertical {
+swiper-container.swiper-vertical {
   height: 100%;
 }
-swiper-container.tf-swiper-vertical::part(container) {
+swiper-container.swiper-vertical::part(container) {
   height: 100%;
   width: auto;
   padding-right: 16px; // no-scroll 12px and with scroll 16px
@@ -61,14 +65,14 @@ swiper-container.tf-swiper-vertical::part(container) {
 }
 
 // HORIZONTAL STYLES ---
+
 swiper-container[direction='horizontal'] {
   --swiper-scrollbar-sides-offset: 6px; // left space before scroll-bar
-  --swiper-scrollbar-bg-color: #dfe1e2;
-  --swiper-scrollbar-drag-bg-color: #abafb2;
+  --swiper-scrollbar-bg-color: vars.$scroll-bar-trail;
   --swiper-scrollbar-size: 6px;
   --swiper-scrollbar-bottom: 4px;
 }
-swiper-container.tf-swiper-horizontal::part(scrollbar) {
+swiper-container.swiper-horizontal::part(scrollbar) {
   width: calc(100% - 46px);
   max-width: 320px;
   position: relative;
@@ -82,9 +86,10 @@ swiper-container.tf-swiper-horizontal::part(scrollbar) {
     height: 14px;
     border-radius: 8px;
     transform: translateY(-4px);
-    background-color: vars.$black-lighten5;
+    background-color: vars.$scroll-bar-trail;
   }
 }
+// Gradient overlays
 @mixin horizontalGradient {
   content: '';
   position: absolute;
@@ -100,7 +105,7 @@ swiper-container.tf-swiper-horizontal::part(scrollbar) {
   }
 }
 $scroll-space: 0px; // space for bottom scroll-bar // 24
-swiper-container.tf-swiper-horizontal::part(container) {
+swiper-container.swiper-horizontal::part(container) {
   width: 100%;
   $shift: -1px; // removes thin artifact line on iPhones
   padding-bottom: $scroll-space;
@@ -118,17 +123,18 @@ swiper-container.tf-swiper-horizontal::part(container) {
     opacity: v-bind('gradientOpacity.end'); // put this to component
   }
 }
-swiper-container.tf-swiper-horizontal::part(button-prev),
-swiper-container.tf-swiper-horizontal::part(button-next) {
+// Navigation buttons
+swiper-container.swiper-horizontal::part(button-prev),
+swiper-container.swiper-horizontal::part(button-next) {
   top: calc(50% - #{$scroll-space} / 2);
   width: 14px;
   height: 14px;
   padding: 13px;
-  color: vars.$black-lighten1;
-  background: vars.$white;
-  border: 1px solid vars.$black-lighten4;
+  color: vars.$nav-button-color;
+  background: vars.$nav-button-bg;
+  border: 2px solid vars.$nav-button-border;
   border-radius: 50%;
-  box-shadow: 0px 5px 10px 5px vars.$box-shadow;
+  // box-shadow: 0px 5px 10px 5px vars.$box-shadow;
   z-index: 10;
   &:hover {
     transition: all 200ms ease-in;
@@ -136,9 +142,9 @@ swiper-container.tf-swiper-horizontal::part(button-next) {
   }
 }
 // put these to component with nav buttons
-swiper-container.tf-swiper-horizontal::part(button-prev) {
+swiper-container.swiper-horizontal::part(button-prev) {
   opacity: v-bind('gradientOpacity.start');
 }
-swiper-container.tf-swiper-horizontal::part(button-next) {
+swiper-container.swiper-horizontal::part(button-next) {
   opacity: v-bind('gradientOpacity.end');
 }

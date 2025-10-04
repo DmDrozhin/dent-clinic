@@ -3,6 +3,8 @@ import { RouterLink, RouterView } from 'vue-router';
 // import HelloWorld from './components/HelloWorld.vue';
 import OfficeGeo from '@/components/OfficeGeo.vue';
 import SiteBanner from '@/components/SiteBanner.vue';
+import SliderSection from '@/components/SliderSection.vue';
+
 import DentLifeHeader from '@/components/DentLifeHeader.vue';
 import DentLifeFooter from '@/components/DentLifeFooter.vue';
 import CardsWrapper from '@/components/CardsWrapper.vue';
@@ -15,6 +17,7 @@ import CardsWrapper from '@/components/CardsWrapper.vue';
       <v-container max-width="1280">
         <SiteBanner class="mb-10" />
         <CardsWrapper class="mb-5" />
+        <SliderSection class="mb-5" />
         <!-- <h1>Main Content</h1> -->
         <!-- <HelloWorld msg="You did it!" /> -->
         <nav>
