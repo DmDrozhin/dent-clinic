@@ -1,0 +1,144 @@
+@use '@/styles/settings.scss';
+@use '@/styles/variables.scss' as vars;
+// GENERAL STYLES
+swiper-slide {
+  width: auto;
+}
+swiper-container::part(scrollbar) {
+  cursor: pointer;
+}
+// for video review comments tab and goToSlide function
+swiper-container.in-transition::part(wrapper) {
+  transition: transform 0.3s ease-in !important;
+}
+
+// VERTICAL STYLES |||
+.tf-swiper-vertical {
+  padding-top: 12px; // prev 6
+  padding-left: 6px;
+}
+swiper-container[direction='vertical'] {
+  --swiper-scrollbar-bg-color: transparent;
+  --swiper-scrollbar-drag-bg-color: #abafb2;
+  --swiper-scrollbar-sides-offset: 3px; // 1%;
+  --swiper-scrollbar-right: 4px; // prev 0
+}
+swiper-container.tf-swiper-vertical {
+  height: 100%;
+}
+swiper-container.tf-swiper-vertical::part(container) {
+  height: 100%;
+  width: auto;
+  padding-right: 16px; // no-scroll 12px and with scroll 16px
+  padding-right: v-bind(scrollBarSpace); // put this to component
+  @mixin verticalGradient {
+    content: '';
+    position: absolute;
+    height: 60px;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 200ms ease-in;
+    @include settings.respond-down(sm) {
+      // prev 640px
+      height: 40px;
+    }
+  }
+  $shift: -1px; // removes thin artifact line on iPhones
+  &::before {
+    @include verticalGradient;
+    top: $shift;
+    background: linear-gradient(180deg, vars.$white 10%, transparent 100%);
+    opacity: v-bind('gradientOpacity.start'); // put this to component
+  }
+  &::after {
+    @include verticalGradient;
+    bottom: $shift;
+    background: linear-gradient(0deg, vars.$white 10%, transparent 100%);
+    opacity: v-bind('gradientOpacity.end'); // put this to component
+  }
+}
+
+// HORIZONTAL STYLES ---
+swiper-container[direction='horizontal'] {
+  --swiper-scrollbar-sides-offset: 6px; // left space before scroll-bar
+  --swiper-scrollbar-bg-color: #dfe1e2;
+  --swiper-scrollbar-drag-bg-color: #abafb2;
+  --swiper-scrollbar-size: 6px;
+  --swiper-scrollbar-bottom: 4px;
+}
+swiper-container.tf-swiper-horizontal::part(scrollbar) {
+  width: calc(100% - 46px);
+  max-width: 320px;
+  position: relative;
+  margin-top: 16px; // choose path 16px, popular questions 24px
+  transition: all 200ms ease-in; // temp
+  &::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: 14px;
+    border-radius: 8px;
+    transform: translateY(-4px);
+    background-color: vars.$black-lighten5;
+  }
+}
+@mixin horizontalGradient {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: all 200ms ease-in;
+  opacity: 0; // gradient opacity is set in component styles
+  @include settings.respond-down(sm) {
+    height: 60px;
+  }
+}
+$scroll-space: 0px; // space for bottom scroll-bar // 24
+swiper-container.tf-swiper-horizontal::part(container) {
+  width: 100%;
+  $shift: -1px; // removes thin artifact line on iPhones
+  padding-bottom: $scroll-space;
+  $gradient-color-h: vars.$white;
+  &::before {
+    @include horizontalGradient;
+    left: $shift;
+    background: linear-gradient(90deg, $gradient-color-h 0%, transparent 100%);
+    opacity: v-bind('gradientOpacity.start'); // put this to component
+  }
+  &::after {
+    @include horizontalGradient;
+    right: $shift;
+    background: linear-gradient(270deg, $gradient-color-h 0%, transparent 100%);
+    opacity: v-bind('gradientOpacity.end'); // put this to component
+  }
+}
+swiper-container.tf-swiper-horizontal::part(button-prev),
+swiper-container.tf-swiper-horizontal::part(button-next) {
+  top: calc(50% - #{$scroll-space} / 2);
+  width: 14px;
+  height: 14px;
+  padding: 13px;
+  color: vars.$black-lighten1;
+  background: vars.$white;
+  border: 1px solid vars.$black-lighten4;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px 5px vars.$box-shadow;
+  z-index: 10;
+  &:hover {
+    transition: all 200ms ease-in;
+    background: vars.$black-lighten7;
+  }
+}
+// put these to component with nav buttons
+swiper-container.tf-swiper-horizontal::part(button-prev) {
+  opacity: v-bind('gradientOpacity.start');
+}
+swiper-container.tf-swiper-horizontal::part(button-next) {
+  opacity: v-bind('gradientOpacity.end');
+}

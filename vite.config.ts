@@ -7,11 +7,17 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 // https://vite.dev/config/
-export default defineConfig(({mode}) => ({
+export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/dent-clinic/' : '/',
   plugins: [
     vue({
-      template: { transformAssetUrls },
+      template: {
+        transformAssetUrls,
+        compilerOptions: {
+          // говорим Vue: эти теги — кастомные элементы
+          isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
+        },
+      },
     }),
     vueJsx(),
     vueDevTools(),
