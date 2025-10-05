@@ -24,7 +24,7 @@ const store = useMaineStore();
         </section>
         <section class="dent-life__section cards">
           <v-img
-            :src="store.userIconsMap['bg-4.svg']"
+            :src="store.userIconsMap['bg-5.svg']"
             absolute
             cover
             position="center center"
@@ -35,6 +35,13 @@ const store = useMaineStore();
           </v-container>
         </section>
         <section class="dent-life__section slider">
+          <v-img
+            :src="store.userIconsMap['bg-6.svg']"
+            absolute
+            cover
+            position="center top"
+            style="z-index: 0"
+          />
           <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <SliderSection />
           </v-container>
@@ -50,7 +57,7 @@ const store = useMaineStore();
           <RouterView />
         </v-container>
         <section class="dent-life__section map">
-            <OfficeGeo />
+          <OfficeGeo />
         </section>
       </v-main>
       <DentLifeFooter />
@@ -91,11 +98,13 @@ const store = useMaineStore();
     &.slider {
       padding: 32px 0 16px 0;
       min-height: 400px;
-      background-color: $black-lighten3;
+      background: $black-lighten3;
+      background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);
     }
   }
 }
 .dl-container {
+  z-index: 1;
   // outline: 1px solid rgba(221, 11, 88, 0.393);
 }
 </style>
