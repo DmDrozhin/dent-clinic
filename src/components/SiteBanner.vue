@@ -30,7 +30,7 @@ const mainOptions = computed(() => ({
 </script>
 
 <template>
-  <div class="banner faded-border-thin" :style="{ backgroundImage: `url(${backgroundImg})` }">
+  <div class="banner" :style="{ backgroundImage: `url(${backgroundImg})` }">
     <h1 class="banner__slogan" v-html="mainOptions.slogan || 'Default slogan text'" />
     <v-card v-if="!xs" class="banner__card card" min-height="240" max-width="420" rounded="lg">
       <div class="card__left-side">
@@ -52,7 +52,6 @@ const mainOptions = computed(() => ({
 <style lang="scss" scoped>
 @use '@/styles/settings.scss';
 .banner {
-  width: 100%;
   min-height: 400px;
   background-size: cover;
   background-position: center 47%;
@@ -70,7 +69,7 @@ const mainOptions = computed(() => ({
     font-family: Jost, sans-serif;
     font-size: 2rem;
     // font-weight: 600;
-    font-weight: 900;
+    font-weight: 700;
     color: white;
     text-align: center;
     z-index: 100;
