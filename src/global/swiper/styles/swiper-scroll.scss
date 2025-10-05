@@ -65,18 +65,21 @@ swiper-container.swiper-vertical::part(container) {
 }
 
 // HORIZONTAL STYLES ---
-
+:root {
+  --swiper-scrollbar-bottom: 2px;
+  --swiper-scrollbar-left: 4px;
+}
 swiper-container[direction='horizontal'] {
   --swiper-scrollbar-sides-offset: 6px; // left space before scroll-bar
   --swiper-scrollbar-bg-color: vars.$scroll-bar-trail;
   --swiper-scrollbar-size: 6px;
-  --swiper-scrollbar-bottom: 4px;
 }
 swiper-container.swiper-horizontal::part(scrollbar) {
   width: calc(100% - 46px);
   max-width: 320px;
   position: relative;
   margin-top: 16px; // choose path 16px, popular questions 24px
+  transform: translateX(16px); // aligns with slides
   transition: all 200ms ease-in; // temp
   &::before {
     content: '';
@@ -85,7 +88,7 @@ swiper-container.swiper-horizontal::part(scrollbar) {
     width: calc(100% + 12px);
     height: 14px;
     border-radius: 8px;
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     background-color: vars.$scroll-bar-trail;
   }
 }
@@ -104,7 +107,7 @@ swiper-container.swiper-horizontal::part(scrollbar) {
     height: 60px;
   }
 }
-$scroll-space: 0px; // space for bottom scroll-bar // 24
+$scroll-space: 4px; // space for bottom scroll-bar // 24
 swiper-container.swiper-horizontal::part(container) {
   width: 100%;
   $shift: -1px; // removes thin artifact line on iPhones
