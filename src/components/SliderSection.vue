@@ -79,19 +79,6 @@ const mainOptions = computed(() => ({
           :position="Number(id) === 2 ? 'center 10%' : 'center 35%'"
           alt="Dent-Life"
         />
-        <!-- <v-img
-          v-if="slide.default"
-          :class="`photo-${id}`"
-          :src="slide.default"
-          :key="idx"
-          min-width="350"
-          width="100%"
-          max-width="450"
-          max-height="230"
-          cover
-          :position="Number(id) === 2 ? 'center 10%' : 'center 35%'"
-          alt="Dent-Life"
-        /> -->
       </swiper-slide>
     </swiper-container>
   </div>
@@ -100,13 +87,12 @@ const mainOptions = computed(() => ({
 <style lang="scss" scoped>
 @use '@/styles/settings.scss';
 .slider {
-  // outline: 1px solid greenyellow;
   &__header {
     padding: 0 24px;
     @include settings.respond-down(sm) {
       padding: 0 12px;
     }
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

@@ -24,7 +24,7 @@ const store = useMaineStore();
         </section>
         <section class="dent-life__section cards">
           <v-img
-            :src="store.userIconsMap['bg-3.svg']"
+            :src="store.userIconsMap['bg-4.svg']"
             absolute
             cover
             position="center center"
