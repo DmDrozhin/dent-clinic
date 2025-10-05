@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref } from 'vue';
 import { useMaineStore } from '@/stores/main.store.ts';
 const store = useMaineStore();
 const iconsPath = computed(() => store.userIconsMap || {});
@@ -32,13 +32,13 @@ const langButtons = [
     image: flagRU.value,
   },
 ];
-const selected = ref<string>('ua');
+const selected = computed(() => store.currentLang || ref<string>('ua'));
 const defaultOptions: Record<string, unknown> = {};
 
-function select(item: string) {
-  selected.value = item; // записываем выбранное значение
-  // menu.value = false; // закрываем меню
-}
+const select = (item: string) => {
+  if (selected.value === item) return;
+  store.updateLanguage(item);
+};
 const selectedItem = computed(() => {
   const found = langButtons.find((item) => item.value === selected.value);
   return found ? found : langButtons[0];
@@ -48,9 +48,6 @@ const mainOptions = computed(() => ({
   ...props.options,
   ...defaultOptions,
 }));
-watchEffect(() => {
-  store.updateLanguage(selected.value);
-});
 </script>
 
 <template>
