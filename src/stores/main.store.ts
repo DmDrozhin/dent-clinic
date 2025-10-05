@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { LANGUAGES, META, CARDS } from '@/settings/Dent-Life.ts';
+import { LANGUAGES, META, CARDS, SLIDER } from '@/settings/Dent-Life.ts';
 import { createAssetMap } from '@/utils/assets.ts';
 
 export const useMaineStore = defineStore('main', () => {
@@ -25,6 +25,9 @@ export const useMaineStore = defineStore('main', () => {
       image: userIconsMap[card.image] || card.image,
     }));
   });
+  const currentSlider = computed(() => {
+    return SLIDER[currentLang.value as 'ua' | 'ru' | 'en'] || SLIDER.ua;
+  });
 
-  return { currentLang, updateLanguage, userIconsMap, currentMeta, currentCards };
+  return { currentLang, updateLanguage, userIconsMap, currentMeta, currentCards, currentSlider };
 });
