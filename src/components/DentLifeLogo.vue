@@ -42,14 +42,10 @@ const mainOptions = computed(() => ({
       :min-width="mainOptions.maxWidth"
       alt="logo"
     />
-    <h1
-      v-if="mainOptions.mainHeader"
-      class="dent-life-logo__title main"
+    <div
+      class="dent-life-logo__title"
       :class="{ 'dl-light': mainOptions.light }"
     >
-      {{ mainOptions.name }}
-    </h1>
-    <div v-else class="dent-life-logo__title" :class="{ 'dl-light': mainOptions.light }">
       {{ mainOptions.name }}
     </div>
   </div>
@@ -61,6 +57,17 @@ const mainOptions = computed(() => ({
   display: flex;
   align-items: center;
   gap: 12px;
+  // &__image {}
+  &__title {
+    color: $dent-life;
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  &__title.dl-light {
+    color: $white;
+  }
   &.compact {
     .dent-life-logo {
       &__title {
@@ -68,12 +75,23 @@ const mainOptions = computed(() => ({
       }
     }
   }
+  &.dl-center {
+    justify-content: center;
+  }
   &.main-logo {
     gap: 16px;
+    .dent-life-logo {
+      &__title {
+        font-weight: 700;
+        font-size: 2rem;
+      }
+    }
     @include settings.respond-down(sm) {
       gap: 12px;
-      h1 {
-        font-size: 1.8rem;
+      .dent-life-logo {
+        &__title {
+          font-size: 1.8rem;
+        }
       }
     }
     @media screen and (max-width: 400px) {
@@ -86,30 +104,11 @@ const mainOptions = computed(() => ({
           max-width: 32px !important;
           max-height: 32px !important;
         }
-      }
-      h1 {
-        font-size: 1.5rem;
+        &__title {
+          font-size: 1.5rem;
+        }
       }
     }
-  }
-
-  &.dl-center {
-    justify-content: center;
-  }
-  // &__image {}
-  &__title {
-    color: $dent-life;
-    font-size: 1.5rem;
-    letter-spacing: 0.15rem;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  &__title.main {
-    font-weight: 700;
-    font-size: 2rem;
-  }
-  &__title.dl-light {
-    color: $white;
   }
 }
 </style>
