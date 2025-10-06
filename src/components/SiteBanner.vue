@@ -57,7 +57,6 @@ const mainOptions = computed(() => ({
   background-position: center 47%;
   position: relative;
   min-width: 320px;
-  // border-radius: 16px;
   // filter: brightness(1.25) blur(2px);
 
   &__slogan {
@@ -68,7 +67,6 @@ const mainOptions = computed(() => ({
     transform: translateX(-50%);
     font-family: Jost, sans-serif;
     font-size: 2rem;
-    // font-weight: 600;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -86,8 +84,9 @@ const mainOptions = computed(() => ({
     content: '';
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(2px) brightness(1.25);
-    background: rgba(255, 255, 255, 0.2); /* нужна прозрачность, чтобы фон был виден */
+    backdrop-filter: blur(0px) brightness(1.25);
+    // background: rgba(255, 255, 255, 0.2); /* нужна прозрачность, чтобы фон был виден */
+    background: rgba(0, 0, 0, 0.3); /* нужна прозрачность, чтобы фон был виден */
   }
   &__card {
     position: absolute;

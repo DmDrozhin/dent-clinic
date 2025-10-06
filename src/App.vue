@@ -38,8 +38,8 @@ const store = useMaineStore();
           <v-img
             :src="store.userIconsMap['bg-6.svg']"
             absolute
+            position="right center"
             cover
-            position="center top"
             style="z-index: 0"
           />
           <v-container class="dl-container mx-auto pa-0" max-width="1280">
@@ -75,7 +75,7 @@ const store = useMaineStore();
 
     &.banner {
       max-height: 400px;
-      background-color: #babeb9;
+      background-color: #7a7c79;
       z-index: 1;
     }
     &.banner::before {
@@ -85,7 +85,7 @@ const store = useMaineStore();
       left: 50%;
       width: 100%;
       height: 100%;
-      background: #aaaba4;
+      background: #6d6e6a;
       z-index: 0;
     }
     &.cards {
@@ -104,6 +104,7 @@ const store = useMaineStore();
   }
 }
 .dl-container {
+  position: relative;
   z-index: 1;
   // outline: 1px solid rgba(221, 11, 88, 0.393);
 }

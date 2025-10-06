@@ -121,16 +121,15 @@ const mainOptions = computed(() => ({
 swiper-container.swiper-horizontal::part(scrollbar) {
   margin-top: 24px;
 }
-$gradient-color-h: $black-lighten3;
 swiper-container.swiper-horizontal::part(container) {
   width: 100%;
   &::before {
     opacity: v-bind('gradientOpacity.start');
-    background: linear-gradient(90deg, $gradient-color-h 0%, transparent 100%);
+    background: linear-gradient(90deg, #8b8989 0%, transparent 100%);
   }
   &::after {
     opacity: v-bind('gradientOpacity.end');
-    background: linear-gradient(270deg, $gradient-color-h 0%, transparent 100%);
+    background: linear-gradient(270deg, #8a8a8a 0%, transparent 100%);
   }
 }
 // NAV Buttons
@@ -143,6 +142,10 @@ swiper-container.swiper-horizontal::part(button-next) {
 swiper-container.swiper-horizontal::part(button-prev),
 swiper-container.swiper-horizontal::part(button-next) {
   top: calc(50% - 30px / 2);
+  background: rgba($black, 0.3);
+  @include settings.respond-down(sm) {
+    border: none;
+  }
 }
 </style>
 
