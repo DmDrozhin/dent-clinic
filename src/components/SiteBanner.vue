@@ -30,7 +30,7 @@ const mainOptions = computed(() => ({
 </script>
 
 <template>
-  <div class="banner" :style="{ backgroundImage: `url(${backgroundImg})` }">
+  <div class="banner faded-border-y" :style="{ backgroundImage: `url(${backgroundImg})` }">
     <h1 class="banner__slogan" v-html="mainOptions.slogan || 'Default slogan text'" />
     <v-card v-if="!xs" class="banner__card card" min-height="240" max-width="420" rounded="lg">
       <div class="card__left-side">
@@ -89,8 +89,8 @@ const mainOptions = computed(() => ({
     position: absolute;
     inset: 0;
     backdrop-filter: blur(0px) brightness(1.25);
-    // background: rgba(255, 255, 255, 0.2); /* нужна прозрачность, чтобы фон был виден */
-    background: rgba(0, 0, 0, 0.3); /* нужна прозрачность, чтобы фон был виден */
+    background: rgba(255, 255, 255, 0.2); /* нужна прозрачность, чтобы фон был виден */
+    // background: rgba(0, 0, 0, 0.3); /* нужна прозрачность, чтобы фон был виден */
   }
   &__card {
     position: absolute;
@@ -177,6 +177,17 @@ const mainOptions = computed(() => ({
     linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%),
     linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
 }
+.faded-border-y {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+    // linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  mask-image:
+    linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+    // linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
+}
 .faded-border-thin {
   -webkit-mask-image:
     linear-gradient(to right, transparent 0, black 3%, black 95%, transparent 100%),
@@ -187,5 +198,25 @@ const mainOptions = computed(() => ({
   mask-image:
     linear-gradient(to right, transparent 0, black 1%, black 99%, transparent 100%),
     linear-gradient(to bottom, transparent 0, black 3%, black 97%, transparent 100%);
+}
+</style>
+<style lang="scss">
+.banner {
+  &__slogan {
+    .slogan {
+      position: relative;
+    }
+    .slogan::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: -32px;
+      width: 24px;
+      height: 24px;
+      background: url('../assets/images/ui/logo-white-cross.svg') no-repeat center center;
+      background-size: contain;
+      filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
+    }
+  }
 }
 </style>

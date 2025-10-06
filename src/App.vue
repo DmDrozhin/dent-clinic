@@ -9,7 +9,11 @@ import DentLifeHeader from '@/components/DentLifeHeader.vue';
 import DentLifeFooter from '@/components/DentLifeFooter.vue';
 import CardsWrapper from '@/components/CardsWrapper.vue';
 import { useMaineStore } from '@/stores/main.store.ts';
+import { onBeforeMount } from 'vue';
 const store = useMaineStore();
+onBeforeMount(() => {
+  store.fetchPrices();
+});
 </script>
 
 <template>
@@ -21,6 +25,16 @@ const store = useMaineStore();
           <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <SiteBanner />
           </v-container>
+        </section>
+        <section class="dent-life__section spacer-3">
+          <v-img
+            :src="store.userIconsMap['bg-7.svg']"
+            absolute
+            position="right 50%"
+            :style="{ transform: 'rotate(180deg)' }"
+            cover
+            style="z-index: 0"
+          />
         </section>
         <section class="dent-life__section cards">
           <v-img
@@ -34,6 +48,25 @@ const store = useMaineStore();
             <CardsWrapper />
           </v-container>
         </section>
+        <section class="dent-life__section spacer">
+          <v-img
+            :src="store.userIconsMap['bg-7.svg']"
+            absolute
+            position="right 50%"
+            :style="{ transform: 'rotate(180deg)' }"
+            cover
+            style="z-index: 0"
+          />
+        </section>
+        <v-container max-width="1280">
+          <!-- <h1>Main Content</h1> -->
+          <!-- <HelloWorld msg="You did it!" /> -->
+          <nav>
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/about">About</RouterLink>
+          </nav>
+          <RouterView />
+        </v-container>
         <section class="dent-life__section slider">
           <v-img
             :src="store.userIconsMap['bg-6.svg']"
@@ -46,16 +79,26 @@ const store = useMaineStore();
             <SliderSection />
           </v-container>
         </section>
-
-        <v-container max-width="1280">
-          <!-- <h1>Main Content</h1> -->
-          <!-- <HelloWorld msg="You did it!" /> -->
-          <nav>
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-          </nav>
-          <RouterView />
-        </v-container>
+        <section class="dent-life__section spacer-3">
+          <v-img
+            :src="store.userIconsMap['bg-7.svg']"
+            absolute
+            position="right 50%"
+            :style="{ transform: 'rotate(180deg)' }"
+            cover
+            style="z-index: 0"
+          />
+        </section>
+                <section class="dent-life__section spacer-2">
+          <v-img
+            :src="store.userIconsMap['bg-7.svg']"
+            absolute
+            position="right 50%"
+            :style="{ transform: 'rotate(180deg)' }"
+            cover
+            style="z-index: 0"
+          />
+        </section>
         <section class="dent-life__section map">
           <OfficeGeo />
         </section>
@@ -72,10 +115,26 @@ const store = useMaineStore();
   &__section {
     position: relative;
     width: 100%;
+    &.spacer {
+      min-height: 450px;
+      background-color: $black-lighten4;
+      background-color: rgba($secondary, 0.5);
+    }
+    &.spacer-3 {
+      min-height: 450px;
+      background-color: $black-lighten4;
+      background-color: rgba($secondary, 0.3);
+    }
+    &.spacer-2 {
+      min-height: 450px;
+      background-color: #F5F5F5;
+      background-color: #fff;
+    }
 
     &.banner {
       max-height: 400px;
       background-color: #7a7c79;
+      background-color: #fff;
       z-index: 1;
     }
     &.banner::before {
@@ -86,6 +145,7 @@ const store = useMaineStore();
       width: 100%;
       height: 100%;
       background: #6d6e6a;
+      background: #fff;
       z-index: 0;
     }
     &.cards {
