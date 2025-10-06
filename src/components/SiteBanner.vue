@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { xs, mdAndDown, mdAndUp, lg, xl, xlAndUp } = useDisplay();
 
-watchEffect(() => console.log("is XL", xl.value));
+watchEffect(() => console.log('is XL', xl.value));
 
 const defaultOptions: Record<string, unknown> = {};
 const mainOptions = computed(() => ({
@@ -58,6 +58,10 @@ const mainOptions = computed(() => ({
   position: relative;
   min-width: 320px;
   // filter: brightness(1.25) blur(2px);
+  &__slogan-icon {
+    width: 100%;
+    flex-shrink: 0;
+  }
 
   &__slogan {
     position: absolute;
@@ -101,11 +105,9 @@ const mainOptions = computed(() => ({
       left: 32px;
       bottom: 32px;
       transform: none;
-      outline: 1px solid rgba(172, 255, 47, 0.546);
       outline-offset: 4px;
     }
     @include settings.respond-down(xs) {
-      outline: 1px solid rgb(255, 47, 151);
       outline-offset: 4px;
       display: none;
     }

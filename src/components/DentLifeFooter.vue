@@ -88,7 +88,7 @@ const mainOptions = computed(() => {
         </section>
       </div>
 
-      <v-divider v-if="!smAndDown" color="white" class="mt-4 mb-10" />
+      <v-divider v-if="!smAndDown" color="white" class="mt-4" />
       <div class="footer__text">
         Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo
         interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed

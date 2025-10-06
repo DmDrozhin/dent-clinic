@@ -110,6 +110,8 @@ const mainOptions = computed(() => ({
     padding: 0 24px;
     color: $white;
     // border-left: 3px solid rgba($secondary, 0.5);
+    // text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+
   }
   &__slide {
     height: 350px;
@@ -125,11 +127,11 @@ swiper-container.swiper-horizontal::part(container) {
   width: 100%;
   &::before {
     opacity: v-bind('gradientOpacity.start');
-    background: linear-gradient(90deg, #8b8989 0%, transparent 100%);
+    background: linear-gradient(90deg, #616161 0%, transparent 100%);
   }
   &::after {
     opacity: v-bind('gradientOpacity.end');
-    background: linear-gradient(270deg, #8a8a8a 0%, transparent 100%);
+    background: linear-gradient(270deg, #5d5d5d 0%, transparent 100%);
   }
 }
 // NAV Buttons

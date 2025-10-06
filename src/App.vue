@@ -13,7 +13,7 @@ const store = useMaineStore();
 </script>
 
 <template>
-  <v-responsive class="dent-life border rounded">
+  <v-responsive class="dent-life rounded">
     <v-app class="dent-life-app">
       <DentLifeHeader />
       <v-main min-width="320">
@@ -99,7 +99,8 @@ const store = useMaineStore();
       padding: 32px 0 16px 0;
       min-height: 400px;
       background: $black-lighten3;
-      background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);
+      // background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);
+      background: radial-gradient(circle, rgb(161 159 159) 0%, rgb(70 70 70) 100%);
     }
   }
 }
