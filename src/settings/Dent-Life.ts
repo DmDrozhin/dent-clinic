@@ -23,7 +23,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       "стоматологія, клініка, Dent-Life, лікування зубів, профілактика, посмішка, здоров'я ротової порожнини", // SEO keywords
     banner: {
       slogan:
-        "<span class='slogan'>Стоматологія для всієї родини!</span><span class='slogan-location'>&nbsp;<span>місто Вишневе</span>",
+        '<span class="slogan">Стоматологія</span> &ensp; <wbr> для всієї родини! &nbsp; <wbr>місто Вишневе',
       text: 'Стоматологія - наука, переважно прикладна, тому хороший стоматолог - це, як талановитий художник. Насправді неважливо які у лікаря дипломи та регалії, а важливо які у нього руки.',
       doctor_name: "Максименко Олег В'ячеславович",
       doctor_title: 'лікар-стоматолог, терапевт',
@@ -39,7 +39,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
       'стоматология, клиника, Dent-Life, лечение зубов, профилактика, улыбка, здоровье ротовой полости', // SEO keywords
     banner: {
       slogan:
-        "<span class='slogan'>Стоматология для всей семьи!</span><span class='slogan-location'>&nbsp;<span>город Вишневое</span>",
+        '<span class="slogan">Стоматология</span> &ensp;  <wbr> для всей семьи! &nbsp; <wbr>город Вишневое',
       text: 'Стоматология - наука, преимущественно прикладная, поэтому хороший стоматолог - это, как талантливый художник. На самом деле неважно какие у врача дипломы и регалии, а важно какие у него руки.',
       doctor_name: 'Максименко Олег Вячеславович',
       doctor_title: 'врач-стоматолог, терапевт',
@@ -53,7 +53,7 @@ export const META: Record<'ua' | 'ru' | 'en', metaInfo> = {
     keywords: 'dentistry, clinic, Dent-Life, dental treatment, prevention, smile, oral health', // SEO keywords
     banner: {
       slogan:
-        "<span class='slogan'>Dentistry for the whole family!</span><span class='slogan-location'>&nbsp;<span>Vishneve city</span>",
+        '<span class="slogan">Dentistry</span> &ensp; <wbr> for the whole family! &nbsp; <wbr>Vishneve city',
       text: 'Dentistry is a science, mostly applied, so a good dentist is like a talented artist. In fact, it does not matter what diplomas and regalia the doctor has, but what kind of hands he has.',
       doctor_name: 'Maksymenko Oleg Vyacheslavovich',
       doctor_title: 'dentist-therapist',
