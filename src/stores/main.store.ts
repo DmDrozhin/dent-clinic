@@ -30,12 +30,13 @@ export const useMaineStore = defineStore('main', () => {
   });
   const currentAbout = computed(() => {
     const about = ABOUT_US[currentLang.value as 'ua' | 'ru' | 'en'] || ABOUT_US.ua;
-    return about.items.map((item) => ({
-      ...item,
-      // если имя есть в userIconsMap — подставляем путь
-      image_url: userIconsMap[item.image] || item.image,
-    }));
-
+    return Array.isArray(about.items)
+      ? about.items.map((item) => ({
+          ...item,
+          // если имя есть в userIconsMap — подставляем путь
+          image_url: userIconsMap[item.image] || item.image,
+        }))
+      : [];
   })
 
   async function getSheetData(sheetId: string, range: string, apiKey: string) {
