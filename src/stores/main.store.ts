@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { LANGUAGES, META, CARDS, SLIDER } from '@/settings/Dent-Life.ts';
+import { LANGUAGES, META, CARDS, SLIDER, ABOUT_US } from '@/settings/Dent-Life.ts';
 import { createAssetMap } from '@/utils/assets.ts';
 
 export const useMaineStore = defineStore('main', () => {
@@ -28,12 +28,20 @@ export const useMaineStore = defineStore('main', () => {
   const currentSlider = computed(() => {
     return SLIDER[currentLang.value as 'ua' | 'ru' | 'en'] || SLIDER.ua;
   });
+  const currentAbout = computed(() => {
+    const about = ABOUT_US[currentLang.value as 'ua' | 'ru' | 'en'] || ABOUT_US.ua;
+    return about.items.map((item) => ({
+      ...item,
+      // если имя есть в userIconsMap — подставляем путь
+      image_url: userIconsMap[item.image] || item.image,
+    }));
+
+  })
 
   async function getSheetData(sheetId: string, range: string, apiKey: string) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${encodeURIComponent(range)}?key=${apiKey}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.values);
     return data.values;
   }
   const google_docs_api_key = import.meta.env.VITE_GOOGLE_DOCS_API_KEY;
@@ -72,7 +80,7 @@ export const useMaineStore = defineStore('main', () => {
 
       prices.value = grouped;
 
-      console.log('Prices fetched and grouped:', prices.value);
+      console.log('Prices fetched and grouped:');
     } catch (error) {
       console.error('Error fetching prices:', error);
     }
@@ -86,5 +94,6 @@ export const useMaineStore = defineStore('main', () => {
     userIconsMap,
     fetchPrices,
     prices,
+    currentAbout
   };
 });

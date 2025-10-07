@@ -432,3 +432,74 @@ export const SLIDER: Record<'ua' | 'ru' | 'en', { title: string }> = {
       'Behind every smile of our patients is the Dent Life team - doctors who love their work, have extensive experience and sincerely care about the result.',
   },
 };
+
+export interface AboutItem {
+  title: string;
+  image: string;
+  image_size: number;
+  image_url?: string;
+}
+
+export interface AboutLocale {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  items?: AboutItem[];
+}
+
+export const ABOUT_US: Record<string, AboutLocale> = {
+  ua: {
+    title:
+      'Дент-Лайф — це простір сучасної стоматології, де турбота про пацієнта поєднується з новітніми технологіями.',
+    subtitle:
+      'Ми працюємо, щоб кожен візит до стоматолога був комфортним, безболісним і результативним.',
+    image: '01-about-us-wt.svg',
+    items: [
+      { title: 'Більше 10 років досвіду', image: '01-about-us.svg', image_size: 64 },
+      {
+        title: 'Сучасне обладнання європейського рівня',
+        image: '02-about-us.svg',
+        image_size: 64,
+      },
+      { title: 'Команда сертифікованих фахівців', image: '03-about-us.svg', image_size: 64 },
+      {
+        title: 'Індивідуальний підхід до кожного пацієнта',
+        image: '04-about-us.svg',
+        image_size: 64,
+      },
+    ],
+  },
+  ru: {
+    title:
+      'Дент-Лайф — это пространство современной стоматологии, где забота о пациенте сочетается с новейшими технологиями.',
+    subtitle:
+      'Мы работаем, чтобы каждый визит к стоматологу был комфортным, безболезненным и результативным.',
+    image: '01-about-us.svg',
+    items: [
+      { title: 'Более 10 лет опыта', image: '01-about-us.svg', image_size: 64 },
+      {
+        title: 'Современное оборудование европейского уровня',
+        image: '02-about-us.svg',
+        image_size: 64,
+      },
+      { title: 'Команда сертифицированных специалистов', image: '03-about-us.svg', image_size: 64 },
+      {
+        title: 'Индивидуальный подход к каждому пациенту',
+        image: '04-about-us.svg',
+        image_size: 64,
+      },
+    ],
+  },
+  en: {
+    title:
+      'Dent-Life is a space of modern dentistry where patient care is combined with the latest technologies.',
+    subtitle: 'We work to make every visit to the dentist comfortable, painless and effective.',
+    image: '01-about-us.svg',
+    items: [
+      { title: 'Over 10 years of experience', image: '01-about-us.svg', image_size: 64 },
+      { title: 'Modern European-level equipment', image: '02-about-us.svg', image_size: 64 },
+      { title: 'A team of certified specialists', image: '03-about-us.svg', image_size: 64 },
+      { title: 'An individual approach to each patient', image: '04-about-us.svg', image_size: 64 },
+    ],
+  },
+};

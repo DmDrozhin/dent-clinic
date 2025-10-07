@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from 'vue-router';
 import OfficeGeo from '@/components/OfficeGeo.vue';
 import SiteBanner from '@/components/SiteBanner.vue';
 import SliderSection from '@/components/SliderSection.vue';
+import AboutSection from '@/components/AboutSection.vue';
 
 import DentLifeHeader from '@/components/DentLifeHeader.vue';
 import DentLifeFooter from '@/components/DentLifeFooter.vue';
@@ -22,11 +23,18 @@ onBeforeMount(() => {
       <DentLifeHeader />
       <v-main min-width="320">
         <section class="dent-life__section banner">
+          <v-img
+            :src="store.userIconsMap['bg-5.svg']"
+            absolute
+            cover
+            position="center center"
+            style="z-index: 0"
+          />
           <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <SiteBanner />
           </v-container>
         </section>
-        <section class="dent-life__section spacer-3">
+        <section class="dent-life__section about">
           <v-img
             :src="store.userIconsMap['bg-7.svg']"
             absolute
@@ -35,6 +43,10 @@ onBeforeMount(() => {
             cover
             style="z-index: 0"
           />
+          <v-container class="dl-container mx-auto pa-0" max-width="1280" style="z-index: 1"
+          >
+            <AboutSection />
+          </v-container>
         </section>
         <section class="dent-life__section cards">
           <v-img
@@ -42,7 +54,7 @@ onBeforeMount(() => {
             absolute
             cover
             position="center center"
-            style="z-index: 0"
+            style="z-index: 0; rotate: 180deg"
           />
           <v-container class="dl-container mx-auto" max-width="1280">
             <CardsWrapper />
@@ -89,13 +101,12 @@ onBeforeMount(() => {
             style="z-index: 0"
           />
         </section>
-                <section class="dent-life__section spacer-2">
+        <section class="dent-life__section spacer-2">
           <v-img
-            :src="store.userIconsMap['bg-7.svg']"
+            :src="store.userIconsMap['bg-8.svg']"
             absolute
-            position="right 50%"
+            position="right top"
             :style="{ transform: 'rotate(180deg)' }"
-            cover
             style="z-index: 0"
           />
         </section>
@@ -115,6 +126,14 @@ onBeforeMount(() => {
   &__section {
     position: relative;
     width: 100%;
+    transition: background 0.3s ease;
+    &.about {
+      min-height: 400px;
+      background-color: rgba($secondary, 0.3);
+      overflow: hidden;
+      padding-top: 64px;
+      z-index: 1;
+    }
     &.spacer {
       min-height: 450px;
       background-color: $black-lighten4;
@@ -122,17 +141,16 @@ onBeforeMount(() => {
     }
     &.spacer-3 {
       min-height: 450px;
-      background-color: $black-lighten4;
       background-color: rgba($secondary, 0.3);
     }
     &.spacer-2 {
       min-height: 450px;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
       background-color: #fff;
     }
 
     &.banner {
-      max-height: 400px;
+      max-height: 450px;
       background-color: #7a7c79;
       background-color: #fff;
       z-index: 1;
@@ -149,14 +167,14 @@ onBeforeMount(() => {
       z-index: 0;
     }
     &.cards {
-      padding: 32px 0;
+      padding: 64px 0 32px 0;
       min-height: 300px;
       // background-color: #E8EAE6;
       // background-color: #37c437;
       overflow: hidden;
     }
     &.slider {
-      padding: 32px 0 16px 0;
+      padding: 64px 0;
       min-height: 400px;
       background: $black-lighten3;
       // background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);

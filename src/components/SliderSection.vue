@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<Props>(), {
   options: () => ({}),
 });
 const { handleProgress, gradientOpacity } = useSwiper();
-const pictures = import.meta.glob<{ default: string }>('@/assets/images/dent-life/*', {
+
+const pictures = import.meta.glob<{ default: string }>('@/assets/images/dent-life-staff/*', {
   eager: true,
 });
 
@@ -26,11 +27,11 @@ const mainOptions = computed(() => ({
 
 <template>
   <div v-if="Object.values(pictures).length > 0" class="slider">
-    <div v-if="store.currentSlider?.title" class="slider__header">
-      <div class="slider__header-img">
+    <div v-if="store.currentSlider?.title" class="section-header">
+      <div class="section-header__icon">
         <v-img :src="store.userIconsMap['smile-tooth.svg']" alt="smile-tooth" />
       </div>
-      <h2 class="slider__header-text">
+      <h2 class="section-header__text">
         {{ store.currentSlider?.title || 'Default Title' }}
       </h2>
     </div>
@@ -87,17 +88,21 @@ const mainOptions = computed(() => ({
 <style lang="scss" scoped>
 @use '@/styles/settings.scss';
 .slider {
-  &__header {
-    padding: 0 24px;
-    @include settings.respond-down(sm) {
-      padding: 0 12px;
-    }
-    margin-bottom: 24px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  &__slide {
+    height: 350px;
+    aspect-ratio: 16/9;
+    position: relative;
   }
-  &__header-img {
+}
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px;
+  @include settings.respond-down(sm) {
+    padding: 24px 12px;
+  }
+  &__icon {
     padding: 8px;
     border-radius: 8px;
     border: 2px solid rgba($dent-icon, 0.5);
@@ -106,17 +111,11 @@ const mainOptions = computed(() => ({
     // box-shadow: 0 8px 30px 3px #09c7c772;
     background-color: #fff;
   }
-  &__header-text {
+  &__text {
     padding: 0 24px;
     color: $white;
     // border-left: 3px solid rgba($secondary, 0.5);
     // text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-
-  }
-  &__slide {
-    height: 350px;
-    aspect-ratio: 16/9;
-    position: relative;
   }
 }
 // Gradient overlay

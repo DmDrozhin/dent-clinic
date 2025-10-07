@@ -82,6 +82,7 @@ const formattedPhones = computed(() => ({
   min-height: 50px;
   &__content {
     position: relative;
+    font-weight: 500;
   }
   &__wrapper {
     display: flex;

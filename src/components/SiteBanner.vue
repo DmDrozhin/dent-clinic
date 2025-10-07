@@ -52,7 +52,7 @@ const mainOptions = computed(() => ({
 <style lang="scss" scoped>
 @use '@/styles/settings.scss';
 .banner {
-  min-height: 400px;
+  min-height: 450px;
   background-size: cover;
   background-position: center 47%;
   position: relative;
@@ -65,13 +65,14 @@ const mainOptions = computed(() => ({
 
   &__slogan {
     position: absolute;
-    top: 8px;
+    top: 12px;
     left: 50%;
-    padding: 0 12px;
+    padding: 0 16px;
     transform: translateX(-50%);
     font-family: Jost, sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    line-height: normal;
     color: white;
     text-align: center;
     z-index: 100;
@@ -99,13 +100,21 @@ const mainOptions = computed(() => ({
     transform: translateY(-50%);
     transition: transform 0.3s ease;
     z-index: 100;
-    @include settings.respond-down(md) {
-      // Использовать MD порог (768px)
+    @media screen and (max-width: 1040px) {
       top: auto;
       left: 32px;
       bottom: 32px;
       transform: none;
+
+    }
+    @include settings.respond-down(md) {
+      // Использовать MD порог (768px)
+      outline: 1px solid rgba(11, 88, 221, 0.393);
       outline-offset: 4px;
+      top: auto;
+      left: 32px;
+      bottom: 32px;
+      transform: none;
     }
     @include settings.respond-down(xs) {
       outline-offset: 4px;
@@ -180,13 +189,11 @@ const mainOptions = computed(() => ({
 .faded-border-y {
   -webkit-mask-image:
     linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
-    // linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
   -webkit-mask-composite: destination-in;
   mask-composite: intersect;
 
   mask-image:
     linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
-    // linear-gradient(to bottom, transparent 0, black 10%, black 90%, transparent 100%);
 }
 .faded-border-thin {
   -webkit-mask-image:
@@ -210,7 +217,7 @@ const mainOptions = computed(() => ({
       content: '';
       position: absolute;
       top: 8px;
-      right: -32px;
+      right: -35px;
       width: 24px;
       height: 24px;
       background: url('../assets/images/ui/logo-white-cross.svg') no-repeat center center;

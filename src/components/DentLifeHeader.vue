@@ -70,7 +70,7 @@ watch(group, () => {
     <v-container class="dl-container mx-auto" max-width="1280">
       <div class="header-block">
         <DentLifeLogo :options="{ mainHeader: true, maxWidth: 40, light: true, customClass: '' }" />
-        <div class="d-flex align-center justify-between ga-2">
+        <div class="d-flex align-center justify-between ga-3">
           <v-btn-toggle
             v-if="xlAndUp"
             :key="101"
@@ -98,7 +98,7 @@ watch(group, () => {
   </v-app-bar>
   <v-navigation-drawer
     v-model="drawer"
-    :location="$vuetify.display.mobile ? 'bottom' : 'left'"
+    location="right"
     temporary
   >
     <v-list :items="items"></v-list>
