@@ -46,12 +46,14 @@ const mainOptions = computed(() => ({
   >
     <template v-slot:prepend>
       <v-img
-        :src="typeof mainOptions.image === 'string' ? mainOptions.image : undefined"
+        v-if="typeof mainOptions.image_url === 'string' && mainOptions.image_url"
+        :src="typeof mainOptions.image_url === 'string' ? mainOptions.image_url : undefined"
         :min-width="
           typeof mainOptions.image_size === 'string' || typeof mainOptions.image_size === 'number'
             ? mainOptions.image_size
             : 48
         "
+        class="mr-2"
       />
     </template>
     <template v-slot:append>

@@ -88,6 +88,7 @@ const mainOptions = computed(() => ({
 <style lang="scss" scoped>
 @use '@/styles/settings.scss';
 .slider {
+  padding: 16px;
   &__slide {
     height: 350px;
     aspect-ratio: 16/9;
@@ -97,8 +98,9 @@ const mainOptions = computed(() => ({
 .section-header {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   padding: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
   @include settings.respond-down(sm) {
     padding: 24px 12px;
   }
