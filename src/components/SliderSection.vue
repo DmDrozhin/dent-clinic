@@ -99,7 +99,7 @@ const mainOptions = computed(() => ({
   display: flex;
   align-items: flex-start;
   padding: 24px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   margin-bottom: 24px;
   @include settings.respond-down(sm) {
     padding: 24px 12px;
@@ -110,14 +110,13 @@ const mainOptions = computed(() => ({
     border: 2px solid rgba($dent-icon, 0.5);
     min-width: 64px;
     height: 64px;
-    // box-shadow: 0 8px 30px 3px #09c7c772;
     background-color: #fff;
   }
   &__text {
     padding: 0 24px;
     color: $white;
     // border-left: 3px solid rgba($secondary, 0.5);
-    // text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
   }
 }
 // Gradient overlay
