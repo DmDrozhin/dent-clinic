@@ -1,7 +1,8 @@
-import { globalIgnores } from 'eslint/config'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
-import pluginVue from 'eslint-plugin-vue'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import { globalIgnores } from 'eslint/config';
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
+import pluginVue from 'eslint-plugin-vue';
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
+import pluginPrettier from 'eslint-plugin-prettier';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
@@ -11,12 +12,32 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 export default defineConfigWithVueTs(
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    files: ['**/*.{ts,mts,tsx,vue}']
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
-  skipFormatting,
-)
+
+  {
+    plugins: {
+      prettier: pluginPrettier
+    },
+    rules: {
+      // Включаем интеграцию с Prettier
+      'prettier/prettier': [
+        'error',
+        {
+          printWidth: 110,
+          singleQuote: true,
+          bracketSameLine: true,
+          singleAttributePerLine: false,
+          trailingComma: 'es5'
+        }
+      ]
+    }
+  },
+
+  skipFormatting // этот можно оставить — он лишь выключает дублирующиеся style-правила
+);
