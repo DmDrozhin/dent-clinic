@@ -104,6 +104,9 @@
     &__google-map {
       width: 100%;
       height: 500px;
+      @include settings.respond-down(sm) {
+        height: 600px;
+      }
     }
     .advanced-marker {
       .dent-life-sign {
@@ -182,7 +185,7 @@
       }
       .advanced-marker {
         &__info {
-          padding-top: 24px;
+          padding-top: 12px;
         }
       }
       // removes Pegman in the bottom right corner, brutal way
