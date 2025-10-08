@@ -110,7 +110,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         id: 2,
         title: 'Лікування зубів',
         image: 'dl-tooth-filling.svg',
-        image_size: 52,
+        image_size: 42,
         details: [
           { title: 'Лікування карієсу' },
           { title: 'Лікування пульпіту' },
@@ -185,7 +185,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         id: 2,
         title: 'Лечение зубов',
         image: 'dl-tooth-filling.svg',
-        image_size: 52,
+        image_size: 42,
         details: [
           { title: 'Лечение кариеса' },
           { title: 'Лечение пульпита' },
@@ -248,7 +248,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         id: 1,
         title: 'Teeth cleaning',
         image: 'dl-tooth-filling.svg',
-        image_size: 52,
+        image_size: 42,
         details: [
           { title: 'Professional teeth cleaning' },
           { title: 'Removal of dental plaque with ultrasound' },
