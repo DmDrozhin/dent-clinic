@@ -132,7 +132,7 @@
       position: relative;
       min-width: 320px;
       aspect-ratio: 16/10;
-      @include settings.respond-down(md) {
+      @include settings.respond-down(sm) {
         min-width: 270px;
       }
     }

@@ -45,12 +45,19 @@
 
   watchEffect(() => {
     if (mapRef.value?.ready && mapRef.value.map) {
-      mapRef.value.map.setOptions({
+      const map = mapRef.value.map;
+      map.setOptions({
         streetViewControl: false, // убираем Pegman
         mapTypeControl: false,
         fullscreenControl: false,
         zoomControl: true, // оставляем масштаб
         disableDefaultUI: false // отключает все стандартные кнопки (если true)
+      });
+      google.maps.event.addListenerOnce(map, 'idle', () => {
+        // Сдвиг через 300 мс после полной загрузки
+        setTimeout(() => {
+          map.panBy(0, -80); // сдвинет карту вниз
+        }, 300);
       });
     }
   });
@@ -104,7 +111,7 @@
     &__google-map {
       width: 100%;
       height: 500px;
-      @include settings.respond-down(sm) {
+      @include settings.respond-down(md) {
         height: 600px;
       }
     }
