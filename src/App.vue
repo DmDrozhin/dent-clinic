@@ -5,6 +5,7 @@
   import SiteBanner from '@/components/SiteBanner.vue';
   import SliderSection from '@/components/SliderSection.vue';
   import AboutSection from '@/components/AboutSection.vue';
+  import PriceList from '@/components/PriceList.vue';
 
   import DentLifeHeader from '@/components/DentLifeHeader.vue';
   import DentLifeFooter from '@/components/DentLifeFooter.vue';
@@ -17,8 +18,7 @@
   const store = useMaineStore();
   const cardsSectionBg = getImagePath('bg-section-cards.png');
   const backgroundImg = getImagePath('top-banner.jpg');
-  const { mdAndUp} = useDisplay();
-
+  const { mdAndUp } = useDisplay();
 
   onBeforeMount(() => {
     store.fetchPrices();
@@ -37,9 +37,7 @@
             cover
             position="center center"
             style="z-index: 0" />
-          <v-container
-            class="dl-container mx-auto pa-0"
-            max-width="1280">
+          <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <v-img
               class="banner__background"
               :class="{ 'faded-border-y': mdAndUp }"
@@ -60,10 +58,7 @@
             :style="{ transform: 'rotate(180deg)' }"
             cover
             style="z-index: 0" />
-          <v-container
-            class="dl-container mx-auto pa-0"
-            max-width="1280"
-            style="z-index: 1">
+          <v-container class="dl-container mx-auto pa-0" max-width="1280" style="z-index: 1">
             <AboutSection />
           </v-container>
         </section>
@@ -75,26 +70,24 @@
             cover
             max-width="1280"
             style="z-index: 0; left: unset; right: 0" />
-          <v-container
-            class="dl-container mx-auto"
-            max-width="1280">
+          <v-container class="dl-container mx-auto" max-width="1280">
             <CardsWrapper />
           </v-container>
         </section>
 
-        <section class="dent-life__section spacer">
-          <v-img
-            :src="store.userIconsMap['bg-7.svg']"
+        <section class="dent-life__section prices">
+          <!-- <v-img
+            :src="store.userIconsMap['bg-test.svg']"
             absolute
-            position="right 50%"
-            :style="{ transform: 'rotate(180deg)' }"
             cover
-            style="z-index: 0" />
+            style="z-index: 0"
+          /> -->
+          <v-container class="dl-container mx-auto" max-width="1280">
+            <PriceList />
+          </v-container>
         </section>
 
         <v-container max-width="1280">
-          <!-- <h1>Main Content</h1> -->
-          <!-- <HelloWorld msg="You did it!" /> -->
           <nav>
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/about">About</RouterLink>
@@ -109,9 +102,7 @@
             position="right center"
             cover
             style="z-index: 0" />
-          <v-container
-            class="dl-container mx-auto pa-0"
-            max-width="1280">
+          <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <SliderSection />
           </v-container>
         </section>
@@ -160,7 +151,6 @@
       }
       &.spacer {
         min-height: 450px;
-        background-color: $black-lighten4;
         background-color: rgba($secondary, 0.5);
       }
       &.spacer-3 {
@@ -211,6 +201,11 @@
           #9e9e9e,
           #a0a0a0
         );
+      }
+      &.prices {
+        padding: 64px 0;
+        min-height: 450px;
+        background-color: rgba($secondary, 0.5);
       }
       &.slider {
         padding: 64px 0;

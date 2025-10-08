@@ -29,13 +29,9 @@
 
 <template>
   <div class="section about">
-    <div
-      v-if="store.currentSlider?.title"
-      class="section-header">
+    <div v-if="mainOptions?.title" class="section-header">
       <div class="section-header__icon">
-        <v-img
-          :src="store.userIconsMap['smile-tooth.svg']"
-          alt="smile-tooth" />
+        <v-img :src="store.userIconsMap['smile-tooth.svg']" alt="smile-tooth" />
       </div>
       <div class="section-header__wrapper">
         <h2 class="section-header__title">
@@ -63,13 +59,8 @@
         <!-- </div> -->
       </div>
       <div class="section__right-side">
-        <div
-          v-if="mainOptions.items?.length"
-          class="list">
-          <div
-            class="list__item"
-            v-for="(item, index) in mainOptions.items || []"
-            :key="index">
+        <div v-if="mainOptions.items?.length" class="list">
+          <div class="list__item" v-for="(item, index) in mainOptions.items || []" :key="index">
             <div class="list__item-wrapper">
               <v-img
                 v-if="item.image_url"
@@ -79,10 +70,7 @@
                 :max-width="item.image_size || 56"
                 alt="reliable-team" />
               <h4 class="list__item-title">{{ item.title }}</h4>
-              <v-img
-                class="list__item-icon"
-                :src="store.userIconsMap['check-green.svg']"
-                alt="check-icon" />
+              <v-img class="list__item-icon" :src="store.userIconsMap['check-green.svg']" alt="check-icon" />
             </div>
             <!-- <v-divider
               v-if="index < (mainOptions.items?.length || 0) - 1"
@@ -129,7 +117,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 24px;
-    background: rgba(255, 255, 255, 0.5);
+    background: #dceaea;
     @include settings.respond-down(sm) {
       padding: 24px 12px 32px 12px;
     }
@@ -165,7 +153,6 @@
       max-width: unset;
       border-radius: 0;
       // outline: 3px solid greenyellow;
-
     }
     // @include settings.respond-down(sm) {
     //   border-radius: 0;

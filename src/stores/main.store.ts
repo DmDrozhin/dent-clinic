@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { LANGUAGES, META, CARDS, SLIDER, ABOUT_US } from '@/settings/Dent-Life.ts';
+import { LANGUAGES, META, CARDS, SLIDER, ABOUT_US } from '@/data/Dent-Life';
+import { PRICES_LIST } from '@/data/Price-List';
 import { createAssetMap } from '@/utils/assets.ts';
 
 export const useMaineStore = defineStore('main', () => {
@@ -36,26 +37,26 @@ export const useMaineStore = defineStore('main', () => {
       cards: Array.isArray(cardsObj.cards)
         ? cardsObj.cards.map((card) => ({
             ...card,
-            image_url: userIconsMap[card.image] || card.image,
+            image_url: userIconsMap[card.image] || card.image
           }))
-        : [],
+        : []
     };
   });
   const currentSlider = computed(() => {
     return SLIDER[currentLang.value as 'ua' | 'ru' | 'en'] || SLIDER.ua;
   });
   interface AboutItem {
-  title: string;
-  image: string;
-  image_size: number;
-  image_url?: string;
-}
+    title: string;
+    image: string;
+    image_size: number;
+    image_url?: string;
+  }
   interface AboutLocale {
-  title: string;
-  subtitle?: string;
-  image?: string;
-  items?: AboutItem[];
-}
+    title: string;
+    subtitle?: string;
+    image?: string;
+    items?: AboutItem[];
+  }
   const currentAbout = computed<AboutLocale>(() => {
     const about = ABOUT_US[currentLang.value as 'ua' | 'ru' | 'en'] || ABOUT_US.ua;
     return {
@@ -64,12 +65,22 @@ export const useMaineStore = defineStore('main', () => {
       items: Array.isArray(about.items)
         ? about.items.map((item) => ({
             ...item,
-            image_url: userIconsMap[item.image] || item.image,
+            image_url: userIconsMap[item.image] || item.image
           }))
-        : [],
+        : []
+    };
+  });
+  const currentPrices = computed(() => {
+    return {
+      ...PRICES_LIST[currentLang.value as 'ua' | 'ru' | 'en'] || PRICES_LIST.ua,
+      categories: (PRICES_LIST[currentLang.value as 'ua' | 'ru' | 'en'] || PRICES_LIST.ua).categories.map((cat) => ({
+        ...cat,
+        image_url: typeof cat.image === 'string' ? (userIconsMap[cat.image] || cat.image) : ''
+      }))
     }
   });
 
+// Fetching and grouping prices from Google Sheets
   async function getSheetData(sheetId: string, range: string, apiKey: string) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${encodeURIComponent(range)}?key=${apiKey}`;
     const response = await fetch(url);
@@ -127,5 +138,6 @@ export const useMaineStore = defineStore('main', () => {
     fetchPrices,
     prices,
     currentAbout,
+    currentPrices
   };
 });
