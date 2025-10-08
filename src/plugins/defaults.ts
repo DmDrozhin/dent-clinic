@@ -9,13 +9,22 @@ const defaults = {
   VCardText: {
     style: 'font-size: 1rem; font-family: Segoe UI, sans-serif;'
   },
+  VExpansionPanelTitle: {
+    // 👇 можно задать глобально поведение overlay, цвет и т.п.
+    style: `
+      font-family: 'Jost', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+    `,
+    class: 'custom-expansion-title'
+  },
   global: {
     style: {
       fontFamily:
         "'Jost', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
       fontSize: '16px',
-      lineHeight: '1.5',
-    },
+      lineHeight: '1.5'
+    }
   },
   variables: {
     'hover-opacity': 0.15,

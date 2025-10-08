@@ -4,6 +4,7 @@ const customTheme = {
     light: {
       colors: {
         primary: '#51ACAA',
+        'primary-lighten5': '#DCEAEA',
         secondary: '#018786',
         background: '#F5F5F5',
         surface: '#E6E6E6',
