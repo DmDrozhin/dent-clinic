@@ -31,9 +31,8 @@
 
 <template>
   <!-- class="banner faded-border-y" -->
-  <div
-    class="banner"
-    :style="{ backgroundImage: `url(${backgroundImg})` }">
+  <!-- :style="{ backgroundImage: `url(${backgroundImg})` }" -->
+  <div class="banner">
     <h1
       class="banner__slogan"
       v-html="mainOptions.slogan || 'Default slogan text'" />
@@ -77,8 +76,8 @@
   @use '@/styles/settings.scss';
   .banner {
     min-height: 500px;
-    background-size: cover;
-    background-position: center 47%;
+    // background-size: cover;
+    // background-position: center 47%;
     position: relative;
     min-width: 320px;
     // filter: brightness(1.25) blur(2px);
