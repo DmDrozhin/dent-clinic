@@ -88,7 +88,6 @@ interface Card {
   image_size: number;
   details: { title: string }[]; // details is an array of objects with title string
 }
-// export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo{}> = {
 export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
   ua: {
     title: 'Наші послуги:',

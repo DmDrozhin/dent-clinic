@@ -34,18 +34,18 @@
         </h3>
       </div>
     </div>
-    <v-expansion-panels multiple bg-color="background" class="prices-panels">
+    <v-expansion-panels multiple bg-color="white" class="prices-panels">
       <v-expansion-panel v-for="(category, index) in mainOptions.categories" :key="index">
-        <v-expansion-panel-title>
-          <div class="" style="min-width: 64px">
-            <v-img :src="category.image_url" :max-width="category.image_size || 32" />
+        <v-expansion-panel-title class="prices-panels__title">
+          <div class="prices-panels__icon-wrap">
+            <v-img class="prices-panels__icon" :src="category.image_url" :max-width="category.image_size || 32" />
           </div>
           {{ category.title }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <div class="prices">
             <div class="prices__item" v-for="(service, i) in category.services" :key="i">
-              <v-icon class="prices__item-icon" icon="mdi mdi-tooth-outline" />
+              <v-icon class="prices__item-icon" icon="mdi-circle-medium" />
               <div class="prices__item-text">{{ service.name }}</div>
               <div class="prices__item-price">{{ service.price }}</div>
             </div>
@@ -70,15 +70,15 @@
 <style lang="scss" scoped>
   @use '@/styles/settings.scss';
 
-  .prices-section {
-    background-color: #fafafa;
-  }
+  // .prices-section {
+  //   background-color: #fafafa;
+  // }
 
-  .v-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  // .v-list-item {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
   .section-header {
     display: flex;
     align-items: flex-start;
@@ -106,6 +106,14 @@
       padding: 0 24px;
       font-weight: 500;
       color: $black-lighten2;
+    }
+  }
+  .prices-panels {
+    &__icon-wrap {
+      min-width: 64px;
+    }
+    &__icon {
+      margin: 0 auto;
     }
   }
   .prices {
