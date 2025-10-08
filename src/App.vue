@@ -12,9 +12,13 @@
   import { useMaineStore } from '@/stores/main.store.ts';
   import { onBeforeMount } from 'vue';
   import { getImagePath } from '@/utils/assets.ts';
+  import { useDisplay } from 'vuetify';
+
   const store = useMaineStore();
   const cardsSectionBg = getImagePath('bg-section-cards.png');
   const backgroundImg = getImagePath('top-banner.jpg');
+  const { mdAndUp} = useDisplay();
+
 
   onBeforeMount(() => {
     store.fetchPrices();
@@ -37,7 +41,8 @@
             class="dl-container mx-auto pa-0"
             max-width="1280">
             <v-img
-              class="banner__background faded-border-y"
+              class="banner__background"
+              :class="{ 'faded-border-y': mdAndUp }"
               :src="backgroundImg"
               absolute
               cover

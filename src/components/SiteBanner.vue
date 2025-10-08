@@ -9,15 +9,13 @@
   interface Props {
     options?: Record<string, unknown>;
   }
-  // const backgroundImg = getImagePath('top-banner.jpg');
   const personPhoto = getImagePath('dent-life-oleg.jpg');
   const cardBg = getImagePath('instrument.png');
   const props = withDefaults(defineProps<Props>(), {
     options: () => ({})
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { xs, mdAndDown, mdAndUp, lg, xl, xlAndUp } = useDisplay();
+  const { xs, mdAndUp, xl } = useDisplay();
 
   watchEffect(() => console.log('is XL', xl.value));
 
@@ -30,8 +28,6 @@
 </script>
 
 <template>
-  <!-- class="banner faded-border-y" -->
-  <!-- :style="{ backgroundImage: `url(${backgroundImg})` }" -->
   <div class="banner">
     <h1
       class="banner__slogan"
@@ -76,11 +72,8 @@
   @use '@/styles/settings.scss';
   .banner {
     min-height: 500px;
-    // background-size: cover;
-    // background-position: center 47%;
     position: relative;
     min-width: 320px;
-    // filter: brightness(1.25) blur(2px);
     &__slogan-icon {
       width: 100%;
       flex-shrink: 0;
