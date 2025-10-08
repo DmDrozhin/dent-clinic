@@ -16,28 +16,59 @@ export const useMaineStore = defineStore('main', () => {
   const userIcons = import.meta.glob<{ default: string }>('@/assets/images/ui/*', { eager: true });
   const userIconsMap = createAssetMap(userIcons);
   const currentMeta = computed(() => META[currentLang.value as 'ua' | 'ru' | 'en'] || META.ua);
-
-  const currentCards = computed(() => {
-    const cards = CARDS[currentLang.value as 'ua' | 'ru' | 'en'] || CARDS.ua;
-    return cards.map((card) => ({
-      ...card,
-      // если имя есть в userIconsMap — подставляем путь
-      image: userIconsMap[card.image] || card.image,
-    }));
+  interface Card {
+    id: number;
+    title: string;
+    image: string;
+    image_url?: string;
+    image_size: number;
+    details: { title: string }[];
+  }
+  interface CardInfo {
+    title: string;
+    cards: Card[];
+  }
+  // currentCards has to return an object with title and cards array according to current language
+  const currentCards = computed<CardInfo>(() => {
+    const cardsObj = CARDS[currentLang.value as 'ua' | 'ru' | 'en'] || CARDS.ua;
+    return {
+      title: cardsObj.title,
+      cards: Array.isArray(cardsObj.cards)
+        ? cardsObj.cards.map((card) => ({
+            ...card,
+            image_url: userIconsMap[card.image] || card.image,
+          }))
+        : [],
+    };
   });
   const currentSlider = computed(() => {
     return SLIDER[currentLang.value as 'ua' | 'ru' | 'en'] || SLIDER.ua;
   });
-  const currentAbout = computed(() => {
+  interface AboutItem {
+  title: string;
+  image: string;
+  image_size: number;
+  image_url?: string;
+}
+  interface AboutLocale {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  items?: AboutItem[];
+}
+  const currentAbout = computed<AboutLocale>(() => {
     const about = ABOUT_US[currentLang.value as 'ua' | 'ru' | 'en'] || ABOUT_US.ua;
-    return Array.isArray(about.items)
-      ? about.items.map((item) => ({
-          ...item,
-          // если имя есть в userIconsMap — подставляем путь
-          image_url: userIconsMap[item.image] || item.image,
-        }))
-      : [];
-  })
+    return {
+      title: about.title,
+      subtitle: about.subtitle,
+      items: Array.isArray(about.items)
+        ? about.items.map((item) => ({
+            ...item,
+            image_url: userIconsMap[item.image] || item.image,
+          }))
+        : [],
+    }
+  });
 
   async function getSheetData(sheetId: string, range: string, apiKey: string) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${encodeURIComponent(range)}?key=${apiKey}`;
@@ -95,6 +126,6 @@ export const useMaineStore = defineStore('main', () => {
     userIconsMap,
     fetchPrices,
     prices,
-    currentAbout
+    currentAbout,
   };
 });
