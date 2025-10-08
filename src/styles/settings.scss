@@ -40,23 +40,22 @@
   }
 }
 
-
 h2 {
-  font-family: "jost", sans-serif;
+  font-family: 'jost', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.2;
-  color: #2c3e50;
+  color: #4f4f4f;
   @include respond-down(sm) {
     font-size: 1.25rem;
   }
 }
 h4 {
-  font-family: "jost", sans-serif;
+  font-family: 'jost', sans-serif;
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.2;
-  color: #2c3e50;
+  color: #4f4f4f;
   @include respond-down(sm) {
     font-size: 1.1rem;
   }
