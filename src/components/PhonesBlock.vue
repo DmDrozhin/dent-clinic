@@ -1,37 +1,43 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { CONTACTS } from '@/settings/Dent-Life.ts';
-import { useMaineStore } from '@/stores/main.store.ts';
-import { formatPhone } from '@/utils/assets.ts';
+  import { computed } from 'vue';
+  import { CONTACTS } from '@/data/Dent-Life';
+  import { useMaineStore } from '@/stores/main.store.ts';
+  import { formatPhone } from '@/utils/assets.ts';
 
-const store = useMaineStore();
-interface Props {
-  options?: Record<string, unknown>;
-}
+  const store = useMaineStore();
+  interface Props {
+    options?: Record<string, unknown>;
+  }
 
-const props = withDefaults(defineProps<Props>(), {
-  options: () => ({}),
-});
+  const props = withDefaults(defineProps<Props>(), {
+    options: () => ({})
+  });
 
-const currentMeta = computed(() => store.currentMeta || {});
+  const currentMeta = computed(() => store.currentMeta || {});
 
-const defaultOptions = {};
-const mainOptions = computed(() => ({
-  ...defaultOptions,
-  ...props.options,
-  ...currentMeta.value,
-  ...CONTACTS,
-}));
+  const defaultOptions = {};
+  const mainOptions = computed(() => ({
+    ...defaultOptions,
+    ...props.options,
+    ...currentMeta.value,
+    ...CONTACTS
+  }));
 
-const formattedPhones = computed(() => ({
-  phone1: formatPhone(mainOptions.value.phone_1),
-  phone2: formatPhone(mainOptions.value.phone_2),
-}));
+  const formattedPhones = computed(() => ({
+    phone1: formatPhone(mainOptions.value.phone_1),
+    phone2: formatPhone(mainOptions.value.phone_2)
+  }));
 </script>
 
 <template>
-  <div v-if="mainOptions.phone_1 || mainOptions.phone_2" class="phones">
-    <v-icon color="white" size="24">mdi-phone</v-icon>
+  <div
+    v-if="mainOptions.phone_1 || mainOptions.phone_2"
+    class="phones">
+    <v-icon
+      color="white"
+      size="24">
+      mdi-phone
+    </v-icon>
     <div class="phones__numbers">
       <v-btn
         class="phones__button number-1"
@@ -43,9 +49,9 @@ const formattedPhones = computed(() => ({
         color="white"
         size="large"
         density="compact"
-        slim
-        >{{ formattedPhones.phone1 }}</v-btn
-      >
+        slim>
+        {{ formattedPhones.phone1 }}
+      </v-btn>
       <v-btn
         class="phones__button number-2"
         v-if="mainOptions.phone_2"
@@ -56,20 +62,20 @@ const formattedPhones = computed(() => ({
         color="white"
         size="large"
         density="compact"
-        slim
-        >{{ formattedPhones.phone2 }}</v-btn
-      >
+        slim>
+        {{ formattedPhones.phone2 }}
+      </v-btn>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.phones {
-  display: flex;
-  align-items: center;
-  &__numbers {
-    text-align: justify;
+  .phones {
+    display: flex;
+    align-items: center;
+    &__numbers {
+      text-align: justify;
+    }
   }
-}
 </style>
 <style lang="scss"></style>

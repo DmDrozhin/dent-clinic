@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { CONTACTS } from '@/settings/Dent-Life.ts';
+  import { CONTACTS } from '@/data/Dent-Life';
   import { useMaineStore } from '@/stores/main.store.ts';
   // import DentLifeLogo from '@/components/DentLifeLogo.vue';
   import { formatPhone } from '@/utils/assets.ts';

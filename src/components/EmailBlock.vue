@@ -1,31 +1,36 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { CONTACTS } from '@/settings/Dent-Life.ts';
-import { useMaineStore } from '@/stores/main.store.ts';
+  import { computed } from 'vue';
+  import { CONTACTS } from '@/data/Dent-Life';
+  import { useMaineStore } from '@/stores/main.store.ts';
 
-const store = useMaineStore();
-interface Props {
-  options?: Record<string, unknown>;
-}
+  const store = useMaineStore();
+  interface Props {
+    options?: Record<string, unknown>;
+  }
 
-const props = withDefaults(defineProps<Props>(), {
-  options: () => ({}),
-});
+  const props = withDefaults(defineProps<Props>(), {
+    options: () => ({})
+  });
 
-const currentMeta = computed(() => store.currentMeta || {});
+  const currentMeta = computed(() => store.currentMeta || {});
 
-const defaultOptions = {};
-const mainOptions = computed(() => ({
-  ...defaultOptions,
-  ...props.options,
-  ...currentMeta.value,
-  ...CONTACTS,
-}));
+  const defaultOptions = {};
+  const mainOptions = computed(() => ({
+    ...defaultOptions,
+    ...props.options,
+    ...currentMeta.value,
+    ...CONTACTS
+  }));
 </script>
 
 <template>
-  <div v-if="mainOptions.email" class="email">
-    <v-img class="email__icon" :src="store.userIconsMap['meta-email-white.svg']" max-width="24" />
+  <div
+    v-if="mainOptions.email"
+    class="email">
+    <v-img
+      class="email__icon"
+      :src="store.userIconsMap['meta-email-white.svg']"
+      max-width="24" />
     <v-btn
       class="email__button"
       :href="`mailto:${mainOptions.email}`"
@@ -36,22 +41,21 @@ const mainOptions = computed(() => ({
       color="white"
       size="large"
       density="compact"
-      slim
-    >
+      slim>
       {{ mainOptions.email }}
     </v-btn>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.email {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  &__icon {
-    flex-shrink: 0;
-    width: 100%;
+  .email {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    &__icon {
+      flex-shrink: 0;
+      width: 100%;
+    }
   }
-}
 </style>
 <style lang="scss"></style>
