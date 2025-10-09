@@ -29,7 +29,7 @@
   <div v-if="Object.values(pictures).length > 0" class="slider">
     <div v-if="store.currentSlider?.title" class="section-header">
       <div class="section-header__icon">
-        <v-img :src="store.userIconsMap['smile-tooth.svg']" alt="smile-tooth" />
+        <v-img :src="store.userIconsMap['happy-man.svg']" alt="smile-tooth" />
       </div>
       <h2 class="section-header__text">
         {{ store.currentSlider?.title || 'Default Title' }}

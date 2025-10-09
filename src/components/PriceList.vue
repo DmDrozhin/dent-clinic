@@ -23,7 +23,7 @@
   <div class="section prices">
     <div v-if="mainOptions?.title" class="section-header">
       <div class="section-header__icon">
-        <v-img :src="store.userIconsMap['smile-tooth.svg']" alt="smile-tooth" />
+        <v-img :src="store.userIconsMap['save-money.svg']" alt="smile-tooth" />
       </div>
       <div class="section-header__wrapper">
         <h2 class="section-header__title">
