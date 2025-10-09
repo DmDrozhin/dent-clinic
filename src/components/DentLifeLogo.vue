@@ -80,6 +80,7 @@ const mainOptions = computed(() => ({
   }
   &.main-logo {
     gap: 16px;
+    cursor: pointer;
     .dent-life-logo {
       &__title {
         font-weight: 700;

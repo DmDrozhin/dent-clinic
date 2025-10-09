@@ -184,6 +184,7 @@
         place-content: center;
         border-radius: 50% !important;
         background: rgba(0, 0, 0, 0.2) !important;
+        z-index: 10;
         & > span {
           margin: 0 !important;
           width: 20px !important;
