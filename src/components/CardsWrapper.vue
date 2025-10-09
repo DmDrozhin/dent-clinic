@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import DentLifeCard from '@/components/DentLifeCard.vue';
+  import DentLifeCard from '@/components/ServiceCard.vue';
   import { useMaineStore } from '@/stores/main.store.ts';
   const store = useMaineStore();
 

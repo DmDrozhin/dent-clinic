@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, watchEffect } from 'vue';
-import PhonesBlock from '@/components/PhonesBlock.vue';
-import ViberBlock from '@/components/ViberBlock.vue';
-import ScheduleBlock from '@/components/ScheduleBlock.vue';
-import AddressBlock from '@/components/AddressBlock.vue';
-import EmailBlock from '@/components/EmailBlock.vue';
+import PhonesBlock from '@/components/MetaPhones.vue';
+import ViberBlock from '@/components/MetaViber.vue';
+import ScheduleBlock from '@/components/MetaSchedule.vue';
+import AddressBlock from '@/components/MetaAddress.vue';
+import EmailBlock from '@/components/MetaEmail.vue';
 import DentLifeLogo from '@/components/DentLifeLogo.vue';
 import LangSwitcher from '@/components/LangSwitcher.vue';
 
@@ -91,9 +91,7 @@ const mainOptions = computed(() => {
       <v-divider v-if="!smAndDown" color="white" class="mt-4" />
       <div class="footer__text">
         Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo
-        interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed
-        massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi
-        vehicula lacinia malesuada.
+        interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc.
       </div>
       <v-divider></v-divider>
       <div>{{ new Date().getFullYear() }} — <strong>Vuetify</strong></div>
