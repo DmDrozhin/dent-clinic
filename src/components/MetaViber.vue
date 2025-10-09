@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import { CONTACTS } from '@/data/Dent-Life';
-  import { useMaineStore } from '@/stores/main.store.ts';
   import { formatPhone } from '@/utils/assets.ts';
+  import { useMaineStore } from '@/stores/main.store.ts';
 
   const store = useMaineStore();
   interface Props {
