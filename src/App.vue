@@ -11,7 +11,7 @@
   import DentLifeFooter from '@/components/DentLifeFooter.vue';
   import CardsWrapper from '@/components/CardsWrapper.vue';
   import { useMaineStore } from '@/stores/main.store.ts';
-  import { onBeforeMount } from 'vue';
+  // import { onBeforeMount } from 'vue';
   import { getImagePath } from '@/utils/assets.ts';
   import { useDisplay } from 'vuetify';
 
@@ -20,9 +20,9 @@
   const backgroundImg = getImagePath('top-banner.jpg');
   const { mdAndUp } = useDisplay();
 
-  onBeforeMount(() => {
-    store.fetchPrices();
-  });
+  // onBeforeMount(() => {
+  //   store.fetchPrices();
+  // });
 </script>
 
 <template>
