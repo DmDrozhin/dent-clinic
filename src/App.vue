@@ -28,8 +28,8 @@
 <template>
   <v-responsive>
     <v-app class="dent-life">
-      <DentLifeHeader />
-      <v-main min-width="320">
+      <DentLifeHeader  />
+      <v-main min-width="320"  id="home">
         <section class="dent-life__section banner">
           <v-img
             :src="store.userIconsMap['bg-5.svg']"
@@ -75,7 +75,7 @@
           </v-container>
         </section>
 
-        <section class="dent-life__section prices">
+        <section id="prices" class="dent-life__section prices">
           <!-- <v-img
             :src="store.userIconsMap['bg-test.svg']"
             absolute
@@ -130,7 +130,7 @@
           <OfficeGeo />
         </section>
       </v-main>
-      <DentLifeFooter />
+      <DentLifeFooter id="contacts" />
     </v-app>
   </v-responsive>
 </template>
