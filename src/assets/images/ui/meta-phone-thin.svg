@@ -1,4 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48" fill="#5CA0B5">
-  <path fill="none" stroke="#5CA0B5" stroke-linecap="round" stroke-linejoin="round"
-    d="m19.308 12.467c-.4234-1.4115-.7215-2.8773-.8813-4.3843-.1571-1.4812-1.449-2.5826-2.9385-2.5826h-6.9092c-1.7767 0-3.1454 1.5345-2.989 3.3043 1.5754 17.8285 15.7771 32.0302 33.6056 33.6056 1.7698.1564 3.3043-1.2073 3.3043-2.9839v-6.1595c0-2.2488-1.1015-3.5362-2.5826-3.6932-1.507-.1598-2.9728-.4579-4.3843-.8813-1.7266-.5179-3.5957-.0304-4.8704 1.2442l-2.9566 2.9566c-5.326-2.8825-9.7164-7.2729-12.5989-12.5989l2.9566-2.9567c1.2746-1.2746 1.7621-3.1438 1.2442-4.8703Z" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="104px" height="104px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 104 104"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#5CA0B5;stroke-width:4.17;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0 str0" d="M39.19 20.87c-1.15,-3.82 -1.96,-7.79 -2.39,-11.88 -0.43,-4.01 -3.93,-6.99 -7.96,-6.99l-18.71 0c-4.81,0 -8.52,4.16 -8.1,8.95 4.27,48.29 42.73,86.75 91.02,91.02 4.79,0.42 8.95,-3.27 8.95,-8.09l0 -16.68c0,-6.09 -2.98,-9.57 -7,-10 -4.08,-0.43 -8.05,-1.24 -11.87,-2.39 -4.68,-1.4 -9.74,-0.08 -13.19,3.37l-8.01 8.01c-14.42,-7.81 -26.32,-19.7 -34.12,-34.12l8.01 -8.01c3.45,-3.45 4.77,-8.52 3.36,-13.19l0.01 0z"/>
+ </g>
 </svg>
