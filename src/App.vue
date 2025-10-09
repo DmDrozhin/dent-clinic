@@ -28,8 +28,8 @@
 <template>
   <v-responsive>
     <v-app class="dent-life">
-      <DentLifeHeader  />
-      <v-main min-width="320"  id="home">
+      <DentLifeHeader />
+      <v-main min-width="320" id="home">
         <section class="dent-life__section banner">
           <v-img
             :src="store.userIconsMap['bg-5.svg']"
@@ -39,7 +39,7 @@
             style="z-index: 0" />
           <v-container class="dl-container mx-auto pa-0" max-width="1280">
             <v-img
-              class="banner__background"
+              class="banner-background"
               :class="{ 'faded-border-y': mdAndUp }"
               :src="backgroundImg"
               absolute
@@ -142,6 +142,18 @@
       position: relative;
       width: 100%;
       transition: background 0.3s ease;
+      &.banner {
+        max-height: 500px;
+        background-color: $white;
+        z-index: 1;
+        .banner-background::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          backdrop-filter: brightness(1.25);
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
       &.about {
         min-height: 400px;
         background-color: rgba($secondary, 0.3);
@@ -149,42 +161,10 @@
         padding-top: 64px;
         z-index: 1;
       }
-      &.spacer {
-        min-height: 450px;
-        background-color: rgba($secondary, 0.5);
-      }
-      &.spacer-3 {
-        min-height: 450px;
-        background-color: rgba($secondary, 0.3);
-      }
-      &.spacer-2 {
-        min-height: 450px;
-        background-color: #f5f5f5;
-        background-color: #fff;
-      }
 
-      &.banner {
-        max-height: 500px;
-        background-color: #7a7c79;
-        background-color: #fff;
-        z-index: 1;
-      }
-      &.banner::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        background: #6d6e6a;
-        background: #fff;
-        z-index: 0;
-      }
       &.cards {
         padding: 64px 0 32px 0;
-        min-height: 300px;
-        // background-color: #E8EAE6;
-        // background-color: #37c437;
+        min-height: 400px;
         overflow: hidden;
         background-image: linear-gradient(
           to bottom,
@@ -212,6 +192,20 @@
         min-height: 400px;
         // background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);
         background: radial-gradient(circle, rgb(234 234 234) 0%, rgb(139 137 137) 100%);
+      }
+
+      &.spacer {
+        min-height: 450px;
+        background-color: rgba($secondary, 0.5);
+      }
+      &.spacer-3 {
+        min-height: 450px;
+        background-color: rgba($secondary, 0.3);
+      }
+      &.spacer-2 {
+        min-height: 450px;
+        background-color: #f5f5f5;
+        background-color: #fff;
       }
     }
   }
