@@ -88,6 +88,7 @@
     margin-bottom: 24px;
     @include settings.respond-down(sm) {
       padding: 24px 12px 32px 12px;
+      margin-bottom: 0;
     }
     &__icon {
       padding: 8px;
