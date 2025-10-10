@@ -1,18 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="34px"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32px" height="34px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 32 34.08" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="726px" height="774px"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="726px" height="774px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 726 773.22" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    
-    .fil0 {fill:#33CC99}
-    .fil1 {fill:red}
+    .fil0 {fill:#339966}
+    .fil1 {fill:white}
    
   </style>
  </defs>
- <g id="SvgjsG1011">
-  <metadata id="SvgjsMetadata1010"></metadata>
-  <path id="SvgjsPath1009" class="fil0" d="M24.5 1.58c-2.72,0.31 -5.11,1.92 -7.78,2.03 -4.86,0.19 -8.4,-3.07 -12.44,-1.62 -1.03,0.37 -2.18,1.43 -2.69,2.23 -3.64,5.71 0.67,13.54 2.13,19.48 0.31,1.3 0.64,2.65 0.95,3.96 0.6,2.53 1.8,5.35 3.64,6.18 2.54,1.15 2.73,-3.41 3.35,-6.02 0.5,-2.15 1.92,-5.37 3.69,-6.01 2.32,-0.85 4.08,3.01 4.68,4.87 0.43,1.32 0.58,2.56 0.91,4 0.28,1.23 0.65,3.02 1.66,3.28 2.37,0.61 3.95,-3.73 4.45,-5.37 0.76,-2.52 1.15,-5.23 2,-7.7 1.58,-4.56 4.13,-11.39 1.73,-15.92 -1.03,-1.94 -3.08,-3.75 -6.28,-3.39l0 0z"></path>
-  <g id="SvgjsG1008">
-   <rect class="fil1" transform="matrix(2.99865E-14 -0.914733 1.23325 2.63878E-14 8.10351 15.1534)" width="5.64" height="12.75" rx="0.68" ry="0.68"></rect>
-   <rect class="fil1" x="13.39" y="4.71" width="5.16" height="15.72" rx="0.62" ry="0.83"></rect>
+ <g id="SvgjsG1007">
+  <metadata id="SvgjsMetadata1006"></metadata>
+  <path id="SvgjsPath1005" class="fil0" d="M555.83 35.88c-61.6,6.96 -115.88,43.51 -176.47,45.91 -110.23,4.37 -190.65,-69.52 -282.23,-36.6 -23.46,8.43 -49.45,32.39 -60.97,50.47 -82.71,129.65 15.18,307.25 48.13,442.02 7.25,29.55 14.62,60.22 21.65,89.83 13.68,57.47 40.91,121.5 82.55,140.27 57.78,26.11 61.96,-77.46 75.96,-136.71 11.46,-48.57 43.54,-121.66 83.73,-136.31 52.7,-19.17 92.71,68.44 106.32,110.63 9.66,29.96 13.18,58.07 20.62,90.58 6.37,27.89 14.71,68.59 37.67,74.49 53.63,13.81 89.51,-84.58 100.82,-121.93 17.24,-57.07 26.17,-118.57 45.51,-174.57 35.76,-103.54 93.61,-258.39 39.2,-361.31 -23.27,-44.01 -69.94,-84.99 -142.49,-76.77l0 0z"></path>
+  <g id="SvgjsG1004">
+   <rect class="fil1" transform="matrix(2.99865E-14 -0.914733 1.23325 2.63878E-14 183.848 343.792)" width="127.94" height="289.22" rx="15.35" ry="15.35"></rect>
+   <rect class="fil1" x="303.67" y="106.94" width="117.03" height="356.68" rx="14.04" ry="18.93"></rect>
   </g>
  </g>
 </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
