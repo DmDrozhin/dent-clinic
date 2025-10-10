@@ -44,15 +44,11 @@
       :breakpoints="{
         '1': {
           slidesPerView: 1,
-          freeMode: { enabled: false },
-          slidesOffsetBefore: 0,
-          slidesOffsetAfter: 0
+          freeMode: { enabled: false }
         },
         '630': {
           slidesPerView: 'auto',
-          freeMode: { enabled: true, momentum: false, momentumBounce: false },
-          slidesOffsetBefore: 10,
-          slidesOffsetAfter: 10
+          freeMode: { enabled: true, momentum: false, momentumBounce: false }
         }
       }"
       free-mode
