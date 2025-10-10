@@ -78,7 +78,6 @@
 <style lang="scss" scoped>
   @use '@/styles/settings.scss';
   .slider {
-    padding: 16px;
     &__slide {
       height: 350px;
       aspect-ratio: 16/9;

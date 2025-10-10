@@ -70,7 +70,7 @@
             cover
             max-width="1280"
             style="z-index: 0; left: unset; right: 0" />
-          <v-container class="dl-container mx-auto" max-width="1280">
+          <v-container class="dl-container mx-auto pa-3" max-width="1280">
             <CardsWrapper />
           </v-container>
         </section>
@@ -82,7 +82,7 @@
             cover
             style="z-index: 0"
           /> -->
-          <v-container class="dl-container mx-auto" max-width="1280">
+          <v-container class="dl-container mx-auto pa-3" max-width="1280">
             <PriceList />
           </v-container>
         </section>
@@ -102,7 +102,7 @@
             position="right center"
             cover
             style="z-index: 0" />
-          <v-container class="dl-container mx-auto pa-0" max-width="1280">
+          <v-container class="dl-container mx-auto pa-3" max-width="1280">
             <SliderSection />
           </v-container>
         </section>
@@ -158,7 +158,7 @@
         min-height: 400px;
         background-color: rgba($secondary, 0.3);
         overflow: hidden;
-        padding-top: 64px;
+        padding: 64px 0 32px 0;
         z-index: 1;
       }
 
@@ -183,12 +183,12 @@
         );
       }
       &.prices {
-        padding: 64px 0;
+        padding: 64px 0 32px 0;
         min-height: 450px;
         background-color: rgba($secondary, 0.5);
       }
       &.slider {
-        padding: 64px 0;
+        padding: 64px 0 32px 0;
         min-height: 400px;
         // background: radial-gradient(circle, rgb(187, 187, 187) 0%, rgb(116 116 116) 100%);
         background: radial-gradient(circle, rgb(234 234 234) 0%, rgb(139 137 137) 100%);

@@ -1,35 +1,34 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+  import { computed } from 'vue';
 
-interface CardDetail {
-  title: string;
-  [key: string]: unknown;
-}
-
-interface Props {
-  options?: {
-    title?: string | number | boolean;
-    image?: string;
-    details?: CardDetail[];
+  interface CardDetail {
+    title: string;
     [key: string]: unknown;
-  };
-}
+  }
 
-const props = withDefaults(defineProps<Props>(), {
-  options: () => ({}),
-});
+  interface Props {
+    options?: {
+      title?: string | number | boolean;
+      image?: string;
+      details?: CardDetail[];
+      [key: string]: unknown;
+    };
+  }
 
-const defaultOptions: Record<string, unknown> = {};
-const mainOptions = computed(() => ({
-  ...props.options,
-  ...defaultOptions,
-}));
+  const props = withDefaults(defineProps<Props>(), {
+    options: () => ({})
+  });
+
+  const defaultOptions: Record<string, unknown> = {};
+  const mainOptions = computed(() => ({
+    ...props.options,
+    ...defaultOptions
+  }));
 </script>
 
 <template>
-  <!-- subtitle="prepend and append" -->
   <v-card
-    class="mx-auto"
+    class="service-card mx-auto"
     :title="
       typeof mainOptions.title === 'string' ||
       typeof mainOptions.title === 'number' ||
@@ -42,8 +41,7 @@ const mainOptions = computed(() => ({
     min-height="205"
     width="100%"
     rounded="lg"
-    color="white"
-  >
+    color="white">
     <template v-slot:prepend>
       <v-img
         v-if="typeof mainOptions.image_url === 'string' && mainOptions.image_url"
@@ -53,8 +51,7 @@ const mainOptions = computed(() => ({
             ? mainOptions.image_size
             : 48
         "
-        class="mr-2"
-      />
+        class="mr-2" />
     </template>
     <template v-slot:append>
       <v-icon color="success" icon="mdi-check"></v-icon>
@@ -68,12 +65,5 @@ const mainOptions = computed(() => ({
   </v-card>
 </template>
 
-<style lang="scss" scoped>
-.block {
-  outline: 1px solid greenyellow;
-
-  min-height: 50px;
-}
-</style>
-
+<style lang="scss" scoped></style>
 <style lang="scss"></style>

@@ -56,7 +56,7 @@
       xs="12"
       v-for="(card, idx) of mainOptions.cards || []"
       :key="idx"
-      class="d-flex"
+      class="service-card-wrapper d-flex"
       color="primary">
       <DentLifeCard :options="{ ...(card as Record<string, unknown>) }" />
     </v-col>

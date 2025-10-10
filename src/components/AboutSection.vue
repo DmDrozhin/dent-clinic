@@ -72,7 +72,8 @@
           :space-between="0"
           observer
           observe-slide-children
-          touch-start-force-prevent-default>
+          touch-start-force-prevent-default
+          :autoplay="{ delay: 5000 }">
           <swiper-slide
             v-for="(slide, idx, id) in slides"
             :key="`slide-key-${idx}`"
@@ -120,6 +121,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 24px;
+    margin-bottom: 24px;
     background: $primary-lighten5;
     @include settings.respond-down(sm) {
       padding: 24px 12px 32px 12px;
@@ -146,12 +148,15 @@
   .section {
     min-height: 400px;
     padding: 16px;
+      @include settings.respond-down(sm) {
+        padding: 12px;
+      }
     &__wrapper {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 32px 24px;
-      padding: 24px 12px;
+      // padding: 24px 12px;
       @include settings.respond-down(sm) {
         display: block;
         padding: 0;
