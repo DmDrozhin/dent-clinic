@@ -16,12 +16,17 @@ export const useMaineStore = defineStore('main', () => {
   const prices = ref<Record<string, { treatment: string; price: string }[]>>({});
   const userIcons = import.meta.glob<{ default: string }>('@/assets/images/ui/*', { eager: true });
   const userIconsMap = createAssetMap(userIcons);
+
+  const servicesImages = import.meta.glob<{ default: string }>('@/assets/images/our-services/*', { eager: true });
+  const servicesImagesMap = createAssetMap(servicesImages);
+
   const currentMeta = computed(() => META[currentLang.value as 'ua' | 'ru' | 'en'] || META.ua);
   interface Card {
     id: number;
     title: string;
     image: string;
     image_url?: string;
+    image_bg?: string;
     image_size: number;
     details: { title: string }[];
   }
@@ -37,7 +42,8 @@ export const useMaineStore = defineStore('main', () => {
       cards: Array.isArray(cardsObj.cards)
         ? cardsObj.cards.map((card) => ({
             ...card,
-            image_url: userIconsMap[card.image] || card.image
+            image_url: userIconsMap[card.image] || card.image,
+            image_bg: servicesImagesMap[card.image_bg] || card.image_bg
           }))
         : []
     };

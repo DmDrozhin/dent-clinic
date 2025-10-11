@@ -86,6 +86,7 @@ interface Card {
   title: string;
   image: string;
   image_size: number;
+  image_bg: string;
   details: { title: string }[]; // details is an array of objects with title string
 }
 export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
@@ -97,6 +98,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Чищення зубів',
         image: 'dl-cleaning.svg',
         image_size: 48,
+        image_bg: '01-profilactic.jpg',
         details: [
           { title: 'Професійне чищення зубів' },
           { title: 'Видалення зубного нальоту ультразвуком' },
@@ -110,6 +112,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Лікування зубів',
         image: 'dl-tooth-filling.svg',
         image_size: 42,
+        image_bg: '02-treatment.jpg',
         details: [
           { title: 'Лікування карієсу' },
           { title: 'Лікування пульпіту' },
@@ -123,6 +126,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Протезування зубів',
         image: 'dl-koronka.svg',
         image_size: 38,
+        image_bg: '03-prosthetics.jpg',
         details: [
           { title: 'Встановлення коронок' },
           { title: 'Цирконієві коронки' },
@@ -136,6 +140,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Імплантація зубів',
         image: 'dl-implant.svg',
         image_size: 40,
+        image_bg: '04-implantation.jpg',
         details: [
           { title: 'Встановлення зубних імплантів' },
           { title: 'Імплантація All-on-4' },
@@ -148,6 +153,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Рентген діагностика',
         image: 'dl-x-ray.svg',
         image_size: 48,
+        image_bg: '05-x-ray.jpg',
         details: [{ title: 'Прицільний знімок' }]
       },
       {
@@ -155,6 +161,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Дитяча стоматологія',
         image: 'dl-happy-tooth.svg',
         image_size: 48,
+        image_bg: '06-children.jpg',
         details: [
           { title: 'Лікування молочних зубів' },
           { title: 'Профілактика карієсу у дітей' },
@@ -172,6 +179,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Чистка зубов',
         image: 'dl-cleaning.svg',
         image_size: 48,
+        image_bg: '01-profilactic.jpg',
         details: [
           { title: 'Профессиональная чистка зубов' },
           { title: 'Удаление зубного налета ультразвуком' },
@@ -185,6 +193,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Лечение зубов',
         image: 'dl-tooth-filling.svg',
         image_size: 42,
+        image_bg: '02-treatment.jpg',
         details: [
           { title: 'Лечение кариеса' },
           { title: 'Лечение пульпита' },
@@ -198,6 +207,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Протезирование зубов',
         image: 'dl-koronka.svg',
         image_size: 38,
+        image_bg: '03-prosthetics.jpg',
         details: [
           { title: 'Установка коронок' },
           { title: 'Циркониевые коронки' },
@@ -211,6 +221,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Имплантация зубов',
         image: 'dl-implant.svg',
         image_size: 40,
+        image_bg: '04-implantation.jpg',
         details: [
           { title: 'Установка зубных имплантов' },
           { title: 'Имплантация All-on-4' },
@@ -223,6 +234,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Рентген диагностика',
         image: 'dl-x-ray.svg',
         image_size: 48,
+        image_bg: '05-x-ray.jpg',
         details: [{ title: 'Прицельный снимок' }]
       },
       {
@@ -230,6 +242,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Детская стоматология',
         image: 'dl-happy-tooth.svg',
         image_size: 48,
+        image_bg: '06-children.jpg',
         details: [
           { title: 'Лечение молочных зубов' },
           { title: 'Профилактика кариеса у детей' },
@@ -248,6 +261,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Teeth cleaning',
         image: 'dl-tooth-filling.svg',
         image_size: 42,
+        image_bg: '01-profilactic.jpg',
         details: [
           { title: 'Professional teeth cleaning' },
           { title: 'Removal of dental plaque with ultrasound' },
@@ -260,8 +274,8 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         id: 2,
         title: 'Dental treatment',
         image: 'dl-cleaning.svg',
-
         image_size: 48,
+        image_bg: '02-treatment.jpg',
         details: [
           { title: 'Caries treatment' },
           { title: 'Pulpitis treatment' },
@@ -275,6 +289,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Dental prosthetics',
         image: 'dl-koronka.svg',
         image_size: 38,
+        image_bg: '03-prosthetics.jpg',
         details: [
           { title: 'Crown installation' },
           { title: 'Zirconia crowns' },
@@ -288,6 +303,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Dental implantation',
         image: 'dl-implant.svg',
         image_size: 40,
+        image_bg: '04-implantation.jpg',
         details: [
           { title: 'Dental implant placement' },
           { title: 'All-on-4 implantation' },
@@ -300,6 +316,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'X-ray diagnostics',
         image: 'dl-x-ray.svg',
         image_size: 48,
+        image_bg: '05-x-ray.jpg',
         details: [{ title: 'Targeted image' }]
       },
       {
@@ -307,6 +324,7 @@ export const CARDS: Record<'ua' | 'ru' | 'en', cardInfo> = {
         title: 'Pediatric dentistry',
         image: 'dl-happy-tooth.svg',
         image_size: 48,
+        image_bg: '06-children.jpg',
         details: [
           { title: 'Treatment of baby teeth' },
           { title: 'Prevention of caries in children' },
